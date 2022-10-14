@@ -1,5 +1,5 @@
 ﻿using System;
-namespace SMSystem
+namespace SMS
 {
     class Program
     {

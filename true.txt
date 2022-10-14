@@ -1,0 +1,11 @@
+Title: Sales management system
+
+It can monitor Sale and allows 
+-Manager to add products , prices and create  attendant.
+ 
+ -Attendant  can login and  register customer,  purchased product and amount paid.
+Attendant make payment and check out  customer. 
+
+The system generate receipt for the customer
+
+(Assuming all payments are in cash)

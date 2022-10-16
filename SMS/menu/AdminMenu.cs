@@ -1,5 +1,6 @@
 using SMS.implementation;
 using SMS.interfaces;
+using SMS.model;
 
 namespace SMS.menu
 {
@@ -24,12 +25,28 @@ namespace SMS.menu
             string post = Console.ReadLine();
 
             iAdminManager.CreateAdmin(firstName, lastName, email, phoneNumber, pin, post);
+
             LoginAdminMenu();
         }
 
         public void LoginAdminMenu()
         {
-            Console.WriteLine("\nSuccessfully Login:");
+
+            Console.WriteLine("\nWelcome.\nEnter your Staff ID and Password to login ");
+            Console.Write("Staff Id: ");
+            int staffId = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Pin: ");
+            int pin = Convert.ToInt32(Console.ReadLine());
+            // iAdminManager.Login(staffId,pin); waht is this doing not part of the code
+            Admin admin = iAdminManager.Login(staffId, pin);
+            if (admin != null)
+            {
+                Console.WriteLine($"Welcome {admin.FirstName}, you've successfully Logged in!");
+            }
+            else
+            {
+                Console.WriteLine($"Wrong Email or Password!.");
+            }
 
         }
     }

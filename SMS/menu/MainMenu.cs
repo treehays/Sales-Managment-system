@@ -43,6 +43,7 @@ namespace SMS.menu
 
         public void RegistrationMenu()
         {
+            AdminMenu adminMenu = new AdminMenu();
             Console.WriteLine("Enter 1 for Admin.\nEnter 2 for Attendant. \nEnter 3 for Customer. \n4 to go back.");
             int choice;
             while (!int.TryParse(Console.ReadLine(), out choice))
@@ -55,6 +56,7 @@ namespace SMS.menu
             if (choice == 1)
             {
                 // Admin
+                adminMenu.RegisterAdminPage();
                 
             }
             else if (choice == 2)

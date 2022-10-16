@@ -8,10 +8,11 @@ namespace SMS.model
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public int Pin { get; set; }
-        public string DateOfBirth { get; set; }
-        public string StaffId;
-        public int Age { get; set; }
-        public User(int id, string firstName, string lastName, string staffId, string email, string phoneNumber, int pin, string dateOfBirth, int age)
+        public int StaffId;
+        // public string DateOfBirth { get; set; }
+        // public int Age { get; set; }
+        // public User(int id, string firstName, string lastName, int staffId, string email, string phoneNumber, int pin, string dateOfBirth, int age)
+        public User(int id, string firstName, string lastName, int staffId, string email, string phoneNumber, int pin)
         {
             Id = id;
             FirstName = firstName;
@@ -20,8 +21,8 @@ namespace SMS.model
             Email = email;
             PhoneNumber = phoneNumber;
             Pin = pin;
-            DateOfBirth = dateOfBirth;
-            Age = age;
+            // DateOfBirth = dateOfBirth;
+            // Age = age;
         }
     }
 }

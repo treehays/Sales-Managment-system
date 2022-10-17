@@ -11,7 +11,7 @@ namespace SMS.menu
             {
                 // Console.Clear();
                 Console.WriteLine("\n>>Main Menu");
-                Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
+                Console.WriteLine("Welcome..\nAZ Sales Management System. \nEnter valid option.");
                 Console.WriteLine("Enter 1 to Register.\nEnter 2 to Login.\n0 to Close.");
                 // int choice = Convert.ToInt32(Console.ReadLine());
                 while (!int.TryParse(Console.ReadLine(), out choice))
@@ -103,8 +103,7 @@ namespace SMS.menu
             do
             {
                 Console.WriteLine("\nMain Menu >> Login >> ");
-
-                Console.WriteLine("\nEnter 1 for Admin.\nEnter 2 for Attendant. \nEnter 3 for Customer. \n4 to go back to Main Menu.\n 0 to Close");
+                Console.WriteLine("Enter 1 for Admin.\nEnter 2 for Attendant. \nEnter 3 for Customer. \n4 to go back to Main Menu.\n 0 to Close");
                 while (!int.TryParse(Console.ReadLine(), out choice))
                 {
                     // Console.Clear();
@@ -148,6 +147,7 @@ namespace SMS.menu
                 }
 
             } while (choice != 0);
+            Console.WriteLine();
         }
     }
 }

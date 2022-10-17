@@ -5,18 +5,15 @@ namespace SMS.implementation
     public class AttendantManager : IAttendantManager
     {
         public static List<Attendant> listOfAttendant = new List<Attendant>();
-
         public void CreateAttendant(string firstName, string lastName, string email, string phoneNumber, int pin, string post)
         {
             int id = listOfAttendant.Count() + 1;
-            int staffId = new Random(id).Next(100000);
+            string staffId = new Random(id).Next(100000).ToString();
             Attendant attendant = new Attendant(id, firstName, lastName, staffId, email, phoneNumber, pin, post);
             listOfAttendant.Add(attendant);
-            Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.");
-
+            Console.WriteLine($"Attendant Creation was Successful! \nThe Staff Identity Number is {staffId} and pint {pin}, \nKeep it Safe.");
         }
-
-        public void DeleteAttendant(int staffId)
+        public void DeleteAttendant(string staffId)
         {
             Attendant attendant = GetAttendant(staffId);
             if (attendant != null)
@@ -29,8 +26,7 @@ namespace SMS.implementation
                 Console.WriteLine("User not found.");
             }
         }
-
-        public Attendant GetAttendant(int staffId)
+        public Attendant GetAttendant(string staffId)
         {
             foreach (var item in listOfAttendant)
             {
@@ -40,10 +36,27 @@ namespace SMS.implementation
                 }
             }
             return null;
-
+        }
+        public void ViewAttendant(string staffId)
+        {
+            foreach (var item in listOfAttendant)
+            {
+                Console.WriteLine($"{item.FirstName}\t{item.LastName}\t{item.Email}\t{item.StaffId}\t{item.Post}");
+                // Console.WriteLine(item.ToString()); 
+                // Console.WriteLine(item.ToString());
+            }
+        }
+        public void ViewAttendant()
+        {
+            foreach (var item in listOfAttendant)
+            {
+                Console.WriteLine($"{item.FirstName}\t{item.LastName}\t{item.Email}\t{item.StaffId}\t{item.Post}");
+                // Console.WriteLine(item.ToString()); 
+                // Console.WriteLine(item.ToString());
+            }
         }
 
-        public Attendant Login(int staffId, int pin)
+        public Attendant Login(string staffId, int pin)
         {
             foreach (var item in listOfAttendant)
             {
@@ -54,8 +67,7 @@ namespace SMS.implementation
             }
             return null;
         }
-
-        public void UpdateAttendant(int staffId, string firstName, string lastName, string phoneNumber, int pin)
+        public void UpdateAttendant(string staffId, string firstName, string lastName, string phoneNumber)
         {
             Attendant attendant = GetAttendant(staffId);
             if (attendant != null)
@@ -69,6 +81,14 @@ namespace SMS.implementation
                 Console.WriteLine("User not found.");
             }
 
+        }
+
+        public void ViewAllAttendants()
+        {
+            foreach (var item in listOfAttendant)
+            {
+                Console.WriteLine($"Staff Id: {item.StaffId} {item.LastName} {item.FirstName} {item.Email} {item.PhoneNumber}");
+            }
         }
     }
 }

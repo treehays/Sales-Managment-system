@@ -20,11 +20,11 @@ namespace SMS.menu
             string phoneNumber = Console.ReadLine();
             Console.Write("pin: ");
             int pin = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Initial Deposit: ");
-            string address = Console.ReadLine();
             Console.Write("Address: ");
-            double wallet= Convert.ToDouble(Console.ReadLine());
-            iCustomerManager.CreateCustomer(firstName, lastName, email, phoneNumber, pin,address,wallet);
+            string address = Console.ReadLine();
+            Console.Write("Initial Deposit: ");
+            double wallet = Convert.ToDouble(Console.ReadLine());
+            iCustomerManager.CreateCustomer(firstName, lastName, email, phoneNumber, pin, address, wallet);
             // LoginAdminMenu();
             mainMenu.LoginMenu();
         }
@@ -34,7 +34,7 @@ namespace SMS.menu
         {
             Console.WriteLine("\nWelcome.\nEnter your Staff ID and Password to login ");
             Console.Write("Staff ID: ");
-            string email =Console.ReadLine();
+            string email = Console.ReadLine();
             Console.Write("Pin: ");
             int pin = Convert.ToInt32(Console.ReadLine());
             // iAdminManager.Login(staffId,pin); waht is this doing not part of the code
@@ -59,6 +59,7 @@ namespace SMS.menu
             do
             {
                 // Console.Clear();
+                Console.WriteLine("...>> Customer >> SubMenue >>");
                 Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
                 Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Update My Details. \n3View sales Records.\n4 to Logout.\n0 to Close.");
                 // int choice = Convert.ToInt32(Console.ReadLine());
@@ -70,7 +71,7 @@ namespace SMS.menu
                 }
                 if (choice == 1)
                 {
-                    // Manage Attendant
+                    // Customer 
                 }
                 else if (choice == 2)
                 {

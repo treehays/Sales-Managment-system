@@ -7,7 +7,9 @@ namespace SMS.menu
     public class AdminMenu
     {
         IAdminManager iAdminManager = new AdminManager();
+         IAttendantManager iAttendantManager = new AttendantManager();
         MainMenu mainMenu = new MainMenu();
+        AttendantMenu attendantMenu = new AttendantMenu();
         public void RegisterAdminPage()
         {
             Console.WriteLine("Welcome...");
@@ -31,9 +33,9 @@ namespace SMS.menu
 
         public void LoginAdminMenu()
         {
-            Console.WriteLine("\nWelcome.\nEnter your Staff ID and Password to login ");
+            Console.WriteLine("Welcome.\nEnter your Staff ID and Password to login ");
             Console.Write("Staff ID: ");
-            int staffId = Convert.ToInt32(Console.ReadLine());
+            string staffId = Console.ReadLine();
             Console.Write("Pin: ");
             int pin = Convert.ToInt32(Console.ReadLine());
             // iAdminManager.Login(staffId,pin); waht is this doing not part of the code
@@ -55,36 +57,111 @@ namespace SMS.menu
         public void AdminSubMenu()
         {
             int choice;
-            do
+
+            // do
+            // {
+            // Console.Clear();
+            Console.WriteLine("Main Menu >> Login >> Admin >>");
+            Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
+            Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Update My Details. \nEnter 3 to View sales Records.\nEnter 4 to Logout.\nEnter 0 to Close.");
+            // int choice = Convert.ToInt32(Console.ReadLine());
+
+            while (!int.TryParse(Console.ReadLine(), out choice))
             {
                 // Console.Clear();
-                Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
-                Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Update My Details. \n3 View sales Records.\n4 to Logout.\n0 to Close.");
-                // int choice = Convert.ToInt32(Console.ReadLine());
-                while (!int.TryParse(Console.ReadLine(), out choice))
-                {
-                    // Console.Clear();
-                    Console.WriteLine("Invalid Input\n");
-                    AdminSubMenu();
-                }
-                if (choice == 1)
-                {
+                Console.WriteLine("Invalid Input\n");
+                AdminSubMenu();
+            }
+            switch (choice)
+            {
+                case 0:
+                    System.Console.WriteLine("Closed.");
+                    break;
+                case 1:
                     // Manage Attendant
-                }
-                else if (choice == 2)
-                {
+                    ManageAttendantSubMenu();
+
+                    break;
+                case 2:
                     // Update detail
-                }
-                else if (choice == 3)
-                {
+                    break;
+                case 3:
                     // View Sales Records
-                }
-                else if (choice == 4)
-                {
+                    break;
+                case 4:
                     // logout
                     mainMenu.LoginMenu();
-                }
-            } while (choice != 0);
+                    break;
+                default:
+                    AdminSubMenu();
+                    break;
+            }
+        }
+
+
+        public void ManageAttendantSubMenu()
+        {
+            Console.WriteLine("...>> Admin >> Manage Attendants >>");
+            Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
+            Console.WriteLine("Enter 1 to Create Attendant.\nEnter 2 to View all attendants. \nEnter 3 to Delete Attendant.\nEnter 4 to Logout.\nEnter 0 to Close.");
+
+            int choice;
+            while (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                // Console.Clear();
+                Console.WriteLine("Invalid Input\n");
+                AdminSubMenu();
+            }
+            switch (choice)
+            {
+                case 0:
+                    System.Console.WriteLine("Closed.");
+                    return;
+                    // break;
+                case 1:
+                    // Create Attendant                    
+                    attendantMenu.RegisterAttendantPage();
+                    break;
+                case 2:
+                    // View All Attendants details
+                    //  Console.WriteLine("Attendant Details.");
+                    // AttendantManager attendantManager = new AttendantManager();
+                    // attendantManager.ViewAttendant(attendant.StaffId);
+                    iAttendantManager.ViewAllAttendants();
+                    break;
+                case 3:
+                    // Delete Attendants
+                    break;
+                case 4:
+                    // logout
+                    mainMenu.LoginMenu();
+                    break;
+                default:
+                    ManageAttendantSubMenu();
+                    break;
+            }
         }
     }
 }
+
+
+
+
+// if (choice == 1)
+// {
+//     // Manage Attendant
+// }
+// else if (choice == 2)
+// {
+//     // Update detail
+// }
+// else if (choice == 3)
+// {
+//     // View Sales Records
+// }
+// else if (choice == 4)
+// {
+//     // logout
+//     mainMenu.LoginMenu();
+// }
+// } while (choice != 0);

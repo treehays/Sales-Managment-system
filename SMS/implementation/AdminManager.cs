@@ -8,13 +8,13 @@ namespace SMS.implementation
         public void CreateAdmin(string firstName, string lastName, string email, string phoneNumber, int pin, string post)
         {
             int id = listOfAdmin.Count() + 1;
-            int staffId = new Random(id).Next(100000);
+            string staffId = new Random(id).Next(100000).ToString();
             Admin admin = new Admin(id, firstName, lastName, staffId, email, phoneNumber, pin, post);
             listOfAdmin.Add(admin);
             Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.\n");
         }
 
-        public void DeleteAdmin(int staffId)
+        public void DeleteAdmin(string staffId)
         {
             Admin admin = GetAdmin(staffId);
             if (admin != null)
@@ -28,7 +28,7 @@ namespace SMS.implementation
             }
         }
 
-        public Admin GetAdmin(int staffId)
+        public Admin GetAdmin(string staffId)
         {
             foreach (var item in listOfAdmin)
             {
@@ -40,7 +40,7 @@ namespace SMS.implementation
             return null;
         }
 
-        public Admin Login(int staffId, int pin)
+        public Admin Login(string staffId, int pin)
         {
             foreach (var item in listOfAdmin)
             {
@@ -52,7 +52,7 @@ namespace SMS.implementation
             return null;
         }
 
-        public void UpdateAdmin(int staffId, string firstName, string lastName, string phoneNumber)
+        public void UpdateAdmin(string staffId, string firstName, string lastName, string phoneNumber)
         {
             Admin admin = GetAdmin(staffId);
             if (admin != null)

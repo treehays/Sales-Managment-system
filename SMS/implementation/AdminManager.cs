@@ -10,7 +10,8 @@ namespace SMS.implementation
             int id = listOfAdmin.Count() + 1;
             int staffId = new Random(id).Next(100000);
             Admin admin = new Admin(id, firstName, lastName, staffId, email, phoneNumber, pin, post);
-            Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.");
+            listOfAdmin.Add(admin);
+            Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.\n");
         }
 
         public void DeleteAdmin(int staffId)
@@ -45,7 +46,7 @@ namespace SMS.implementation
             {
                 if (item.StaffId == staffId && item.Pin == pin)
                 {
-                    return item;
+                    return item; 
                 }
             }
             return null;

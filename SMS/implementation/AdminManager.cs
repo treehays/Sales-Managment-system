@@ -8,7 +8,7 @@ namespace SMS.implementation
         public void CreateAdmin(string firstName, string lastName, string email, string phoneNumber, int pin, string post)
         {
             int id = listOfAdmin.Count() + 1;
-            string staffId = new Random(id).Next(100000).ToString();
+            string staffId = new Random(id).Next(1100000).ToString();
             Admin admin = new Admin(id, firstName, lastName, staffId, email, phoneNumber, pin, post);
             listOfAdmin.Add(admin);
             Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.\n");

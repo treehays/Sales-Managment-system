@@ -112,7 +112,6 @@ namespace SMS.menu
                 }
                 if (choice == 1)
                 {
-
                     // Admin
                     Console.WriteLine("\nMain Menu >> Login >> Admin");
                     AdminMenu adminMenu = new AdminMenu();
@@ -131,7 +130,6 @@ namespace SMS.menu
                     Console.WriteLine("\nMain Menu >> Login >> Customer");
                     CustomerMenu customerMenu = new CustomerMenu();
                     customerMenu.LoginCUstomerMenu();
-
                 }
                 else if (choice == 4)
                 {

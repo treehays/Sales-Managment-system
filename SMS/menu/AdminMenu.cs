@@ -7,7 +7,7 @@ namespace SMS.menu
     public class AdminMenu
     {
         IAdminManager iAdminManager = new AdminManager();
-         IAttendantManager iAttendantManager = new AttendantManager();
+        IAttendantManager iAttendantManager = new AttendantManager();
         MainMenu mainMenu = new MainMenu();
         AttendantMenu attendantMenu = new AttendantMenu();
         public void RegisterAdminPage()
@@ -29,6 +29,8 @@ namespace SMS.menu
             // LoginAdminMenu();
             mainMenu.LoginMenu();
         }
+
+
 
 
         public void LoginAdminMenu()
@@ -131,6 +133,7 @@ namespace SMS.menu
                     break;
                 case 3:
                     // Delete Attendants
+                    // iAdminManager.DeleteAdmin();
                     break;
                 case 4:
                     // logout

@@ -9,9 +9,9 @@ namespace SMS.model
             Post = post;
         }
 
-        public override string ToString()
-        {
-            return $"{this.FirstName}";
-        }
+        // public override string ToString()
+        // {
+        //     return $"{this.FirstName}";
+        // }
     }
 }

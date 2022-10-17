@@ -9,8 +9,6 @@ namespace SMS
         {
             MainMenu mainMenu = new MainMenu();
             mainMenu.AllMainMenu();
-            Console.WriteLine("Thanks for your patronage,\nsee you next time.");
-
             
         }
     }

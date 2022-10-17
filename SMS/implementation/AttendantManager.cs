@@ -46,15 +46,15 @@ namespace SMS.implementation
                 // Console.WriteLine(item.ToString());
             }
         }
-        public void ViewAttendant()
-        {
-            foreach (var item in listOfAttendant)
-            {
-                Console.WriteLine($"{item.FirstName}\t{item.LastName}\t{item.Email}\t{item.StaffId}\t{item.Post}");
-                // Console.WriteLine(item.ToString()); 
-                // Console.WriteLine(item.ToString());
-            }
-        }
+        // public void ViewAttendant()
+        // {
+        //     foreach (var item in listOfAttendant)
+        //     {
+        //         Console.WriteLine($"{item.FirstName}\t{item.LastName}\t{item.Email}\t{item.StaffId}\t{item.Post}");
+        //         // Console.WriteLine(item.ToString()); 
+        //         // Console.WriteLine(item.ToString());
+        //     }
+        // }
 
         public Attendant Login(string staffId, int pin)
         {

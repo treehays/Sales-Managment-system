@@ -7,7 +7,7 @@ namespace SMS.menu
     {
         IAttendantManager iAttendantManager = new AttendantManager();
         MainMenu mainMenu = new MainMenu();
-        
+
         public void RegisterAttendantPage()
         {
             Console.WriteLine("Welcome...");
@@ -26,6 +26,11 @@ namespace SMS.menu
             iAttendantManager.CreateAttendant(firstName, lastName, email, phoneNumber, pin, post);
             // LoginAdminMenu();
             mainMenu.LoginMenu();
+        }
+
+        public void DeleteAttendant()
+        {
+
         }
 
 
@@ -89,9 +94,10 @@ namespace SMS.menu
 
                 else if (choice == 3)
                 {
-                    Console.WriteLine("Attendant Details.");
-                    AttendantManager attendantManager = new AttendantManager();
-                    attendantManager.ViewAttendant(attendant.StaffId);
+                    //only showing  here
+                    // Console.WriteLine    ("Attendant Details.");
+                    // AttendantManager attendantManager = new AttendantManager();
+                    // attendantManager.ViewAttendant(attendant.StaffId);
 
                     // View Sales Records
                 }
@@ -102,6 +108,7 @@ namespace SMS.menu
                 }
             } while (choice != 0);
         }
+
 
 
         // public void AllAttendant(Attendant attendant)

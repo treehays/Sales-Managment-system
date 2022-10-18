@@ -4,7 +4,7 @@ namespace SMS.implementation
 {
     public class TransactionManager : ITransactionManager
     {
-        public void CreateTransaction(string customerName, string orderDate, int quantity)
+        public void CreateTransaction(int id)
         {
             throw new NotImplementedException();
         }

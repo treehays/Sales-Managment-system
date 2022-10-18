@@ -32,6 +32,14 @@ namespace SMS.menu
 
 
 
+        public void DeleteAttendantMenu()
+        {
+            Console.Write("Enter Staff ID of the Attendant.");
+            string staffId = Console.ReadLine();
+            iAttendantManager.DeleteAttendant(staffId);
+        }
+
+
 
         public void LoginAdminMenu()
         {
@@ -119,7 +127,7 @@ namespace SMS.menu
                 case 0:
                     System.Console.WriteLine("Closed.");
                     return;
-                    // break;
+                // break;
                 case 1:
                     // Create Attendant                    
                     attendantMenu.RegisterAttendantPage();
@@ -134,6 +142,7 @@ namespace SMS.menu
                 case 3:
                     // Delete Attendants
                     // iAdminManager.DeleteAdmin();
+                    DeleteAttendantMenu();
                     break;
                 case 4:
                     // logout

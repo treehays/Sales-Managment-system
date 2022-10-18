@@ -11,16 +11,16 @@ namespace SMS.implementation
         public void CreateCustomer(string firstName, string lastName, string email, string phoneNumber, int pin, string address, double wallet)
         {
             int id = listOfCustomer.Count() + 1;
-            string staffId = new Random(id).Next(100000).ToString();
-            Customer customer = new Customer(id, firstName, lastName, staffId, email, phoneNumber, pin, address, wallet);
+            string customerId = new Random(id).Next(100000).ToString();
+            Customer customer = new Customer(id, firstName, lastName, email, customerId, phoneNumber, pin, address, wallet);
             listOfCustomer.Add(customer);
-            Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.");
+            Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {customerId}, \nKeep it Safe.");
 
         }
 
-        public void DeleteCustomer(string staffId)
+        public void DeleteCustomer(string customerId)
         {
-            Customer customer = GetCustomer(staffId);
+            Customer customer = GetCustomer(customerId);
             if (customer != null)
             {
                 Console.WriteLine($"{customer.FirstName} {customer.LastName} Successfully deleted. ");
@@ -32,11 +32,11 @@ namespace SMS.implementation
             }
         }
 
-        public Customer GetCustomer(string staffId)
+        public Customer GetCustomer(string customerId)
         {
             foreach (var item in listOfCustomer)
             {
-                if (item.StaffId == staffId)
+                if (item.CustomerId == customerId)
                 {
                     return item;
                 }
@@ -45,11 +45,11 @@ namespace SMS.implementation
 
         }
 
-        public Customer Login(string staffId, int pin)
+        public Customer Login(string customerId, int pin)
         {
             foreach (var item in listOfCustomer)
             {
-                if (item.StaffId == staffId && item.Pin == pin)
+                if (item.CustomerId == customerId && item.Pin == pin)
                 {
                     return item;
                 }
@@ -60,9 +60,9 @@ namespace SMS.implementation
 
 
 
-        public void UpdateCustomer(string staffId, string firstName, string lastName, string phoneNumber)
+        public void UpdateCustomer(string customerId, string firstName, string lastName, string phoneNumber)
         {
-            Customer customer = GetCustomer(staffId);
+            Customer customer = GetCustomer(customerId);
             if (customer != null)
             {
                 customer.FirstName = firstName;

@@ -6,6 +6,8 @@ namespace SMS.menu
     public class AttendantMenu
     {
         IAttendantManager iAttendantManager = new AttendantManager();
+        ICustomerManager iCustomerManager = new CustomerManager();
+
         MainMenu mainMenu = new MainMenu();
 
         public void RegisterAttendantPage()
@@ -28,8 +30,11 @@ namespace SMS.menu
             mainMenu.LoginMenu();
         }
 
-        public void DeleteAttendant()
+        public void DeleteProduct()
         {
+            Console.Write("Enter the Barcode of the Product to be deleted.");
+            string customerId = Console.ReadLine();
+            
 
         }
 

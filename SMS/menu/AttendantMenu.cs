@@ -34,7 +34,7 @@ namespace SMS.menu
         {
             Console.Write("Enter the Barcode of the Product to be deleted.");
             string customerId = Console.ReadLine();
-            
+
 
         }
 
@@ -68,6 +68,8 @@ namespace SMS.menu
             do
             {
                 // Console.Clear();
+                Console.WriteLine("...Login >> Attendant >>");
+
                 Console.WriteLine("\nWelcome..\nSemicolon Sales Management System. \nEnter valid option.");
                 Console.WriteLine("Enter 1 to Record Sales.\nEnter 2 to Update My Details. \n3 View history.\n4 to Logout.\n0 to Close.");
                 // int choice = Convert.ToInt32(Console.ReadLine());
@@ -80,6 +82,10 @@ namespace SMS.menu
                 if (choice == 1)
                 {
                     // Manage Attendant
+                    // Update detail
+
+
+
 
                 }
                 else if (choice == 2)
@@ -115,6 +121,19 @@ namespace SMS.menu
         }
 
 
+
+        public void CustomerCart()
+        {
+            Console.WriteLine(".\nEnter Customer ID: ");
+            string customerId = Console.ReadLine();
+            Console.Write("Enter Product barcode: ");
+            string barCode = Console.ReadLine();
+            Console.Write("Enter Product barcode: ");
+            int quantity = int.Parse(Console.ReadLine());
+            IAttendantManager iAttendantManager = new AttendantManager();
+            iAttendantManager.UpdateAttendant(attendant.StaffId, firstName, lastName, phoneNumber);
+
+        }
 
         // public void AllAttendant(Attendant attendant)
         // {

@@ -93,12 +93,16 @@ namespace SMS.menu
 
                     break;
                 case 2:
-                    // Update detail
+                    // Manage Products 
+                    
                     break;
                 case 3:
-                    // View Sales Records
+                    // Update detail
                     break;
                 case 4:
+                    // View Sales Records
+                    break;
+                case 5:
                     // logout
                     mainMenu.LoginMenu();
                     break;
@@ -155,25 +159,3 @@ namespace SMS.menu
         }
     }
 }
-
-
-
-
-// if (choice == 1)
-// {
-//     // Manage Attendant
-// }
-// else if (choice == 2)
-// {
-//     // Update detail
-// }
-// else if (choice == 3)
-// {
-//     // View Sales Records
-// }
-// else if (choice == 4)
-// {
-//     // logout
-//     mainMenu.LoginMenu();
-// }
-// } while (choice != 0);

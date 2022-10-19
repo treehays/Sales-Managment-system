@@ -30,7 +30,7 @@ namespace SMS.implementation
         //     throw new NotImplementedException();
         // }
 
-        public void GetAllTransactions(String receiptNo)
+        public void GetAllTransactions()
         {
             // throw new NotImplementedException();
             foreach (var item in listOfTransaction)

@@ -8,5 +8,6 @@ namespace SMS.interfaces
         public Product GetProduct(string barCode);
         public void UpdateProduct(string barCode, string productName, double price);
         public void DeleteProduct(string barCode);
+         public void ViewAllProduct();
     }
 }

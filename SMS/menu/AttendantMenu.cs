@@ -10,10 +10,11 @@ namespace SMS.menu
         // ICustomerManager iCustomerManager = new CustomerManager();
 
         MainMenu mainMenu = new MainMenu();
+        AdminMenu adminMenu = new AdminMenu();
 
         public void RegisterAttendantPage()
         {
-            Console.WriteLine("Welcome...");
+            Console.WriteLine("\nEnter Valid Details..");
             Console.Write("First name: ");
             string firstName = Console.ReadLine();
             Console.Write("Last name: ");
@@ -28,7 +29,8 @@ namespace SMS.menu
             string post = Console.ReadLine();
             iAttendantManager.CreateAttendant(firstName, lastName, email, phoneNumber, pin, post);
             // LoginAdminMenu();
-            mainMenu.LoginMenu();
+
+            adminMenu.AdminSubMenu();
         }
 
         public void DeleteProduct()
@@ -68,8 +70,8 @@ namespace SMS.menu
                 // Console.Clear();
                 Console.WriteLine("...Logged >> Attendant >>");
 
-                Console.WriteLine("\nWelcome..\nSemicolon Sales Management System. \nEnter valid option.");
-                Console.WriteLine("Enter 1 to Record Sales.\nEnter 2 to Update My Details. \n3 View history.\n4 to Logout.\n0 to Close.");
+                Console.WriteLine("\nSemicolon Sales Management System. \nEnter valid option.");
+                Console.WriteLine("Enter 1 to Record Sales.\nEnter 2 to Update My Details. \nEnter 3 to View history.\nEnter 4 to Logout.\nEnter 0 to Close.");
                 // int choice = Convert.ToInt32(Console.ReadLine());
                 while (!int.TryParse(Console.ReadLine(), out choice))
                 {
@@ -90,14 +92,9 @@ namespace SMS.menu
                     int quantity = Convert.ToInt32(Console.ReadLine());
                     Console.Write("CustomerName: ");
                     string customerId = Console.ReadLine();
-                    iTransactionManager.CreateTransaction (receiptNo,barCode,quantity,customerId);
-                    
-                    mainMenu.LoginMenu();
+                    iTransactionManager.CreateTransaction(receiptNo, barCode, quantity, customerId);
 
-
-
-
-
+                    AttendantSubMenu(attendant);
                 }
                 else if (choice == 2)
                 {
@@ -113,15 +110,11 @@ namespace SMS.menu
                     iAttendantManager.UpdateAttendant(attendant.StaffId, firstName, lastName, phoneNumber);
 
                 }
-
                 else if (choice == 3)
                 {
-                    //only showing  here
-                    // Console.WriteLine    ("Attendant Details.");
-                    // AttendantManager attendantManager = new AttendantManager();
-                    // attendantManager.ViewAttendant(attendant.StaffId);
-
-                    // View Sales Records
+                    //View Transaction History
+                    // View Sales Sales Records
+                    iTransactionManager.GetAllTransactions();
                 }
                 else if (choice == 4)
                 {

@@ -73,11 +73,10 @@ namespace SMS.menu
             // do
             // {
             // Console.Clear();
-            Console.WriteLine("Main Menu >> Login >> Admin >>");
-            Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
-            Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Manage Products \n3 to Update My Details. \nEnter 4 to View sales Records.\nEnter 5 to Logout.\nEnter 0 to Close.");
+            Console.WriteLine("\nMain Menu >> Login >> Admin >>");
+            Console.WriteLine("\nAZ Sales Management System. \nEnter valid option.");
+            Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Manage Products \nEnter 3 to Update My Details. \nEnter 4 to View sales Records.\nEnter 5 to Logout.\nEnter 0 to Close.");
             // int choice = Convert.ToInt32(Console.ReadLine());
-
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
                 // Console.Clear();
@@ -118,8 +117,8 @@ namespace SMS.menu
 
         public void ManageAttendantSubMenu()
         {
-            Console.WriteLine("...>> Admin >> Manage Attendants >>");
-            Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
+            Console.WriteLine("\n...>> Admin >> Manage Attendants >>");
+            Console.WriteLine("\nAZn Sales Management System. \nEnter valid option.");
             Console.WriteLine("Enter 1 to Create Attendant.\nEnter 2 to View all attendants. \nEnter 3 to Delete Attendant.\nEnter 4 to Logout.\nEnter 0 to Close.");
 
             int choice;
@@ -163,16 +162,16 @@ namespace SMS.menu
 
         public void ManageProductSubMenu()
         {
-            Console.WriteLine("...>> Admin >> Manage Product >>");
-            Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
-            Console.WriteLine("Enter 1 to Add a product .\nEnter 2 to Modify A product \n3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Logout.\nEnter 0 to Close.");
+            Console.WriteLine("\n...>> Admin >> Manage Product >>");
+            Console.WriteLine("\nAZ Sales Management System. \nEnter valid option.");
+            Console.WriteLine("Enter 1 to Add a product .\nEnter 2 to Modify A product \nEnter 3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Logout.\nEnter 0 to Close.");
 
             int choice;
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
                 // Console.Clear();
                 Console.WriteLine("Invalid Input\n");
-                AdminSubMenu();
+                ManageProductSubMenu();
             }
             switch (choice)
             {
@@ -189,25 +188,30 @@ namespace SMS.menu
                     Console.Write("Price: ");
                     double price = int.Parse(Console.ReadLine());
                     iProductManager.CreateProduct(barCode, productName, price);
+                    ManageProductSubMenu();
                     break;
                 case 2:
-                    // View All Attendants details
+                    // Modify product
                     //  Console.WriteLine("Attendant Details.");
                     // AttendantManager attendantManager = new AttendantManager();
                     // attendantManager.ViewAttendant(attendant.StaffId);
-                    iAttendantManager.ViewAllAttendants();
+
                     break;
                 case 3:
-                    // Delete Attendants
+                    // View All products
                     // iAdminManager.DeleteAdmin();
-                    DeleteAttendantMenu();
+                    iProductManager.ViewAllProduct();
                     break;
                 case 4:
+                    // logout
+                    DeleteAttendantMenu();
+                    break;
+                case 5:
                     // logout
                     mainMenu.LoginMenu();
                     break;
                 default:
-                    ManageAttendantSubMenu();
+                    ManageProductSubMenu();
                     break;
             }
         }

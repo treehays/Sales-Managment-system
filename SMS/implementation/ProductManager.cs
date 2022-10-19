@@ -56,5 +56,14 @@ namespace SMS.implementation
                 Console.WriteLine("Product not found.");
             }
         }
+        public void ViewAllProduct()
+        {
+            foreach (var item in listOfProduct)
+            {
+                Console.WriteLine($"{item.Id}\t{item.ProductName}\t{item.BarCode}\t{item.Price}");
+                // Console.WriteLine(item.ToString()); 
+                // Console.WriteLine(item.ToString());
+            }
+        }
     }
 }

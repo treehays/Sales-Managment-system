@@ -59,7 +59,6 @@ namespace SMS.menu
                     Console.WriteLine("\nMain Menu >> Register >> Admin");
                     AdminMenu adminMenu = new AdminMenu();
                     adminMenu.RegisterAdminPage();
-
                 }
                 else if (choice == 2)
                 {
@@ -91,7 +90,6 @@ namespace SMS.menu
                 }
 
             } while (choice != 0);
-
         }
         public void LoginMenu()
         {

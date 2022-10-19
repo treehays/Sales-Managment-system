@@ -8,6 +8,6 @@ namespace SMS.interfaces
         public void GetTransaction(string receiptNo);
         // public Transaction UpdateTransaction();
         // public void DeleteTransaction(string receiptNo);
-        public void GetAllTransactions(string receiptNo);
+        public void GetAllTransactions();
     }
 }

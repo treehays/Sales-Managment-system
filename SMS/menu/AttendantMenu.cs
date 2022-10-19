@@ -6,7 +6,8 @@ namespace SMS.menu
     public class AttendantMenu
     {
         IAttendantManager iAttendantManager = new AttendantManager();
-        ICustomerManager iCustomerManager = new CustomerManager();
+        ITransactionManager iTransactionManager = new TransactionManager();
+        // ICustomerManager iCustomerManager = new CustomerManager();
 
         MainMenu mainMenu = new MainMenu();
 
@@ -59,16 +60,13 @@ namespace SMS.menu
                 Console.WriteLine($"Wrong Email or Password!.");
             }
         }
-
-
-
         public void AttendantSubMenu(Attendant attendant)
         {
             int choice;
             do
             {
                 // Console.Clear();
-                Console.WriteLine("...Login >> Attendant >>");
+                Console.WriteLine("...Logged >> Attendant >>");
 
                 Console.WriteLine("\nWelcome..\nSemicolon Sales Management System. \nEnter valid option.");
                 Console.WriteLine("Enter 1 to Record Sales.\nEnter 2 to Update My Details. \n3 View history.\n4 to Logout.\n0 to Close.");
@@ -81,8 +79,21 @@ namespace SMS.menu
                 }
                 if (choice == 1)
                 {
-                    // Manage Attendant
-                    // Update detail
+                    // Record Sales
+                    // Make Payement
+                    Console.WriteLine("...Logged >> Attendant >> Payment Page");
+                    Console.Write("Enter RecieptNo: ");
+                    string receiptNo = Console.ReadLine();
+                    Console.Write("Enter Porduct Barcode: ");
+                    string barCode = Console.ReadLine();
+                    Console.Write("Quantity: ");
+                    int quantity = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("CustomerName: ");
+                    string customerId = Console.ReadLine();
+                    iTransactionManager.CreateTransaction (receiptNo,barCode,quantity,customerId);
+                    
+                    mainMenu.LoginMenu();
+
 
 
 
@@ -98,7 +109,7 @@ namespace SMS.menu
                     string lastName = Console.ReadLine();
                     Console.Write("Phone Number: ");
                     string phoneNumber = Console.ReadLine();
-                    IAttendantManager iAttendantManager = new AttendantManager();
+                    // IAttendantManager iAttendantManager = new AttendantManager();
                     iAttendantManager.UpdateAttendant(attendant.StaffId, firstName, lastName, phoneNumber);
 
                 }
@@ -121,19 +132,20 @@ namespace SMS.menu
         }
 
 
+        /*
+                public void CustomerCart()
+                {
+                    Console.WriteLine(".\nEnter Customer ID: ");
+                    string customerId = Console.ReadLine();
+                    Console.Write("Enter Product barcode: ");
+                    string barCode = Console.ReadLine();
+                    Console.Write("Enter Product barcode: ");
+                    int quantity = int.Parse(Console.ReadLine());
+                    IAttendantManager iAttendantManager = new AttendantManager();
+                    iAttendantManager.UpdateAttendant(attendant.StaffId, firstName, lastName, phoneNumber);
 
-        public void CustomerCart()
-        {
-            Console.WriteLine(".\nEnter Customer ID: ");
-            string customerId = Console.ReadLine();
-            Console.Write("Enter Product barcode: ");
-            string barCode = Console.ReadLine();
-            Console.Write("Enter Product barcode: ");
-            int quantity = int.Parse(Console.ReadLine());
-            IAttendantManager iAttendantManager = new AttendantManager();
-            iAttendantManager.UpdateAttendant(attendant.StaffId, firstName, lastName, phoneNumber);
-
-        }
+                }
+                */
 
         // public void AllAttendant(Attendant attendant)
         // {

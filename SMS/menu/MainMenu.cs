@@ -5,8 +5,6 @@ namespace SMS.menu
         public int choice;
         public void AllMainMenu()
         {
-
-
             do
             {
                 // Console.Clear();
@@ -42,8 +40,6 @@ namespace SMS.menu
             } while (choice != 0);
 
         }
-
-
         public void RegistrationMenu()
         {
             do
@@ -74,10 +70,12 @@ namespace SMS.menu
                 }
                 else if (choice == 3)
                 {
+                    /*
                     // Customer
                     Console.WriteLine("\nMain Menu >> Register >> Customer >>");
                     CustomerMenu customerMenu = new CustomerMenu();
                     customerMenu.RegisterCustomerPage();
+                    */
                 }
                 else if (choice == 4)
                 {
@@ -95,8 +93,6 @@ namespace SMS.menu
             } while (choice != 0);
 
         }
-
-
         public void LoginMenu()
         {
             int choice;
@@ -126,10 +122,12 @@ namespace SMS.menu
                 }
                 else if (choice == 3)
                 {
+                    /* OUT OFF THE PROGRAM FOR SUSTOMER
                     // Customer
                     Console.WriteLine("\nMain Menu >> Login >> Customer");
                     CustomerMenu customerMenu = new CustomerMenu();
                     customerMenu.LoginCUstomerMenu();
+                    */
                 }
                 else if (choice == 4)
                 {

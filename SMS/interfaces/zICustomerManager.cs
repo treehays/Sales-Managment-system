@@ -1,3 +1,4 @@
+/*
 using SMS.model;
 
 namespace SMS.interfaces
@@ -11,3 +12,5 @@ namespace SMS.interfaces
         public Customer Login (string email,  int pin);
     }
 }
+
+*/

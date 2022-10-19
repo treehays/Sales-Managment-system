@@ -7,16 +7,16 @@ namespace SMS.implementation
     {
         public static List<Product> listOfProduct = new List<Product>();
 
-        public void CreateProduct(double barCode, string productName, double price)
+        public void CreateProduct(string barCode, string productName, double price)
         {
             int id = listOfProduct.Count() + 1;
             Product product = new Product(id, barCode, productName, price);
             listOfProduct.Add(product);
-            Console.WriteLine($"Product Added Successfully. \nThere are total of {id} in the store.");
+            Console.WriteLine($"Product Added Successfully. \nThere are total of {id} product's in the store.");
 
         }
 
-        public void DeleteProduct(int barCode)
+        public void DeleteProduct(string barCode)
         {
             Product product = GetProduct(barCode);
             if (product != null)
@@ -30,7 +30,7 @@ namespace SMS.implementation
             }
         }
 
-        public Product GetProduct(int barCode)
+        public Product GetProduct(string barCode)
         {
             foreach (var item in listOfProduct)
             {
@@ -42,7 +42,7 @@ namespace SMS.implementation
             return null;
         }
 
-        public void UpdateProduct(int barCode, string productName, double price)
+        public void UpdateProduct(string barCode, string productName, double price)
         {
             Product product = GetProduct(barCode);
             if (product != null)

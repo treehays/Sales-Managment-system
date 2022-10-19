@@ -8,8 +8,10 @@ namespace SMS.menu
     {
         IAdminManager iAdminManager = new AdminManager();
         IAttendantManager iAttendantManager = new AttendantManager();
+        IProductManager iProductManager = new ProductManager();
         MainMenu mainMenu = new MainMenu();
         AttendantMenu attendantMenu = new AttendantMenu();
+        ProductMenu productMenu = new ProductMenu();
         public void RegisterAdminPage()
         {
             Console.WriteLine("Welcome...");
@@ -73,7 +75,7 @@ namespace SMS.menu
             // Console.Clear();
             Console.WriteLine("Main Menu >> Login >> Admin >>");
             Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
-            Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Update My Details. \nEnter 3 to View sales Records.\nEnter 4 to Logout.\nEnter 0 to Close.");
+            Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Manage Products \n3 to Update My Details. \nEnter 4 to View sales Records.\nEnter 5 to Logout.\nEnter 0 to Close.");
             // int choice = Convert.ToInt32(Console.ReadLine());
 
             while (!int.TryParse(Console.ReadLine(), out choice))
@@ -94,7 +96,8 @@ namespace SMS.menu
                     break;
                 case 2:
                     // Manage Products 
-                    
+                    ManageProductSubMenu();
+
                     break;
                 case 3:
                     // Update detail
@@ -135,6 +138,57 @@ namespace SMS.menu
                 case 1:
                     // Create Attendant                    
                     attendantMenu.RegisterAttendantPage();
+                    break;
+                case 2:
+                    // View All Attendants details
+                    //  Console.WriteLine("Attendant Details.");
+                    // AttendantManager attendantManager = new AttendantManager();
+                    // attendantManager.ViewAttendant(attendant.StaffId);
+                    iAttendantManager.ViewAllAttendants();
+                    break;
+                case 3:
+                    // Delete Attendants
+                    // iAdminManager.DeleteAdmin();
+                    DeleteAttendantMenu();
+                    break;
+                case 4:
+                    // logout
+                    mainMenu.LoginMenu();
+                    break;
+                default:
+                    ManageAttendantSubMenu();
+                    break;
+            }
+        }
+
+        public void ManageProductSubMenu()
+        {
+            Console.WriteLine("...>> Admin >> Manage Product >>");
+            Console.WriteLine("Welcome..\nSemicolon Sales Management System. \nEnter valid option.");
+            Console.WriteLine("Enter 1 to Add a product .\nEnter 2 to Modify A product \n3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Logout.\nEnter 0 to Close.");
+
+            int choice;
+            while (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                // Console.Clear();
+                Console.WriteLine("Invalid Input\n");
+                AdminSubMenu();
+            }
+            switch (choice)
+            {
+                case 0:
+                    System.Console.WriteLine("Closed.");
+                    return;
+                // break;
+                case 1:
+                    // Add Product
+                    Console.Write("Product Name: ");
+                    string productName = Console.ReadLine();
+                    Console.Write("Barcode(Product ID): ");
+                    string barCode = Console.ReadLine();
+                    Console.Write("Price: ");
+                    double price = int.Parse(Console.ReadLine());
+                    iProductManager.CreateProduct(barCode, productName, price);
                     break;
                 case 2:
                     // View All Attendants details

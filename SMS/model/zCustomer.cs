@@ -1,3 +1,4 @@
+/*
 namespace SMS.model
 {
     public class Customer
@@ -26,3 +27,5 @@ namespace SMS.model
         }
     }
 }
+
+*/

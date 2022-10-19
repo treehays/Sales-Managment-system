@@ -4,9 +4,9 @@ namespace SMS.interfaces
 {
     public interface IProductManager
     {
-        public void CreateProduct(double barCode, string productName, double price);
-        public Product GetProduct(int barCode);
-        public void UpdateProduct(int barCode, string productName, double price);
-        public void DeleteProduct(int barCode);
+        public void CreateProduct(string barCode, string productName, double price);
+        public Product GetProduct(string barCode);
+        public void UpdateProduct(string barCode, string productName, double price);
+        public void DeleteProduct(string barCode);
     }
 }

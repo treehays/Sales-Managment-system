@@ -5,33 +5,54 @@ namespace SMS.implementation
 {
     public class TransactionManager : ITransactionManager
     {
-        public static List<Transaction> listOfTransaction = new List<Transaction>();
-
-        public void CreateTransaction(string customerId, string barCode, int quantity, string customerId)
+        public static List<Transactiona> listOfTransaction = new List<Transactiona>();
+        // public static List<Transactiona> listOfCustomerCart = new List<Transactiona>();
+        IProductManager iProductManager = new ProductManager();
+        public void CreateTransaction(String ReceiptNo, string barCode, int quantity, string customerId)
         {
+            var product = iProductManager.GetProduct(barCode);
 
             int id = listOfTransaction.Count() + 1;
-            string receiptNo = new Random(id).Next(1100000).ToString();
+            string receiptNo = new Random(id).Next(2323,110000).ToString();
+            double total = product.Price * quantity;
 
-            Transaction transaction = new Transaction(receiptNo, barCode, quantity, customerId);
+
+            Transactiona transaction = new Transactiona(id, receiptNo, barCode, quantity, total, customerId);
             listOfTransaction.Add(transaction);
-            Console.WriteLine($"\nKeep it Safe.\n");
+
+
+            Console.WriteLine($"\nReciept No: {ReceiptNo} \nBarcode: {product.BarCode} \nPrice Per Unit: {product.Price} \nQuantity:{quantity} \nTotal: {product.Price * quantity}\nCustomer ID:{customerId}.\n");
 
         }
 
-        public void DeleteTransaction(int receiptNo)
+        // public void DeleteTransaction(String receiptNo)
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+        public void GetAllTransactions(String receiptNo)
         {
-            throw new NotImplementedException();
+            // throw new NotImplementedException();
+            foreach (var item in listOfTransaction)
+            {
+                Console.WriteLine($"Staff Id: {item.Id} {item.CustomerId} {item.BarCode} {item.ReceiptNo} ");
+            }
         }
 
-        public void GetAllTransactions(int receiptNo)
+        public void GetTransaction(String barCode)
         {
-            throw new NotImplementedException();
-        }
+            // ProductManager productManager = new ProductManager();
+            // productManager.GetProduct(barCode);
+            // if (productManager != null)
+            // {
+            //     // Console.WriteLine($"S. ");
+            //     listOfCustomerCart.Add(productManager);
 
-        public void GetTransaction(int receiptNo)
-        {
-            throw new NotImplementedException();
+            // }
+            // else
+            // {
+            //     Console.WriteLine("Product not found.");
+            // }
         }
     }
 }

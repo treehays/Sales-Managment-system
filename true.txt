@@ -9,3 +9,10 @@ Attendant make payment and check out  customer.
 The system generate receipt for the customer
 
 (Assuming all payments are in cash)
+/*
+*check for under pay
+*check for availabilty of product
+*manage inventory
+*Manager walet
+*verify availabilty of email
+*/

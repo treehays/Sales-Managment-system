@@ -15,9 +15,17 @@ namespace SMS.implementation
             double total = product.Price * quantity;
             double xpectedChange = cashTender - total;
             DateTime dateTime = DateTime.Now;
-            Transactiona transaction = new Transactiona(id, receiptNo, barCode, quantity, total, customerId, dateTime, cashTender);
-            listOfTransaction.Add(transaction);
-            Console.WriteLine($"Transaction Date: {dateTime} \tReceipt No: {ReceiptNo} \nBarcode: {product.BarCode} \nPrice Per Unit: {product.Price} \nQuantity:{quantity} \nTotal: {product.Price * quantity}\nCustomer ID:{customerId}.\nCustomer Change: {xpectedChange}");
+            if (xpectedChange < 0)
+            {
+                
+            }
+            else
+            {
+                Transactiona transaction = new Transactiona(id, receiptNo, barCode, quantity, total, customerId, dateTime, cashTender);
+                listOfTransaction.Add(transaction);
+                Console.WriteLine($"Transaction Date: {dateTime} \tReceipt No: {ReceiptNo} \nBarcode: {product.BarCode} \nPrice Per Unit: {product.Price} \nQuantity:{quantity} \nTotal: {product.Price * quantity}\nCustomer ID:{customerId}.\nCustomer Change: {xpectedChange}");
+            }
+
         }
         public void GetAllTransactions()
         {

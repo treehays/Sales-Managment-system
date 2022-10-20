@@ -5,10 +5,10 @@ namespace SMS.implementation
     public class AttendantManager : IAttendantManager
     {
         public static List<Attendant> listOfAttendant = new List<Attendant>();
-        public void CreateAttendant(string firstName, string lastName, string email, string phoneNumber, int pin, string post)
+        public void CreateAttendant(string firstName, string lastName, string email, string phoneNumber, string pin, string post)
         {
             int id = listOfAttendant.Count() + 1;
-            string staffId = new Random(id).Next(100000).ToString();
+            string staffId = "AT" + new Random(id).Next(100000).ToString();
             Attendant attendant = new Attendant(id, firstName, lastName, staffId, email, phoneNumber, pin, post);
             listOfAttendant.Add(attendant);
             Console.WriteLine($"Attendant Creation was Successful! \nThe Staff Identity Number is {staffId} and pint {pin}, \nKeep it Safe.");
@@ -42,21 +42,9 @@ namespace SMS.implementation
             foreach (var item in listOfAttendant)
             {
                 Console.WriteLine($"{item.FirstName}\t{item.LastName}\t{item.Email}\t{item.StaffId}\t{item.Post}");
-                // Console.WriteLine(item.ToString()); 
-                // Console.WriteLine(item.ToString());
             }
         }
-        // public void ViewAttendant()
-        // {
-        //     foreach (var item in listOfAttendant)
-        //     {
-        //         Console.WriteLine($"{item.FirstName}\t{item.LastName}\t{item.Email}\t{item.StaffId}\t{item.Post}");
-        //         // Console.WriteLine(item.ToString()); 
-        //         // Console.WriteLine(item.ToString());
-        //     }
-        // }
-
-        public Attendant Login(string staffId, int pin)
+        public Attendant Login(string staffId, string pin)
         {
             foreach (var item in listOfAttendant)
             {

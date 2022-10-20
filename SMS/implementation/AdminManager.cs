@@ -5,10 +5,10 @@ namespace SMS.implementation
     public class AdminManager : IAdminManager
     {
         public static List<Admin> listOfAdmin = new List<Admin>();
-        public void CreateAdmin(string firstName, string lastName, string email, string phoneNumber, int pin, string post)
+        public void CreateAdmin(string firstName, string lastName, string email, string phoneNumber, string pin, string post)
         {
             int id = listOfAdmin.Count() + 1;
-            string staffId = new Random(id).Next(1100000).ToString();
+            string staffId = "AZ" + new Random(id).Next(1100000).ToString();
             Admin admin = new Admin(id, firstName, lastName, staffId, email, phoneNumber, pin, post);
             listOfAdmin.Add(admin);
             Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.\n");
@@ -40,11 +40,11 @@ namespace SMS.implementation
             return null;
         }
 
-        public Admin Login(string staffId, int pin)
+        public Admin Login(string staffId, string pin)
         {
             foreach (var item in listOfAdmin)
             {
-                if (item.StaffId == staffId && item.Pin == pin)
+                if (item.StaffId == staffId.ToUpper() && item.Pin == pin)
                 {
                     return item; 
                 }

@@ -1,21 +1,17 @@
 using SMS.interfaces;
 using SMS.model;
-
 namespace SMS.implementation
 {
     public class ProductManager : IProductManager
     {
         public static List<Product> listOfProduct = new List<Product>();
-
         public void CreateProduct(string barCode, string productName, double price)
         {
             int id = listOfProduct.Count() + 1;
             Product product = new Product(id, barCode, productName, price);
             listOfProduct.Add(product);
             Console.WriteLine($"Product Added Successfully. \nThere are total of {id} product's in the store.");
-
         }
-
         public void DeleteProduct(string barCode)
         {
             Product product = GetProduct(barCode);
@@ -29,7 +25,6 @@ namespace SMS.implementation
                 Console.WriteLine("Product not found.");
             }
         }
-
         public Product GetProduct(string barCode)
         {
             foreach (var item in listOfProduct)
@@ -41,7 +36,6 @@ namespace SMS.implementation
             }
             return null;
         }
-
         public void UpdateProduct(string barCode, string productName, double price)
         {
             Product product = GetProduct(barCode);
@@ -61,8 +55,6 @@ namespace SMS.implementation
             foreach (var item in listOfProduct)
             {
                 Console.WriteLine($"{item.Id}\t{item.ProductName}\t{item.BarCode}\t{item.Price}");
-                // Console.WriteLine(item.ToString()); 
-                // Console.WriteLine(item.ToString());
             }
         }
     }

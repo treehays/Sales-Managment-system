@@ -9,9 +9,6 @@ namespace SMS.menu
         IAdminManager iAdminManager = new AdminManager();
         IAttendantManager iAttendantManager = new AttendantManager();
         IProductManager iProductManager = new ProductManager();
-        MainMenu mainMenu = new MainMenu();
-        AttendantMenu attendantMenu = new AttendantMenu();
-        ProductMenu productMenu = new ProductMenu();
         public void RegisterAdminPage()
         {
             Console.WriteLine("Welcome...");
@@ -24,32 +21,27 @@ namespace SMS.menu
             Console.Write("Phone Number: ");
             string phoneNumber = Console.ReadLine();
             Console.Write("pin: ");
-            int pin = Convert.ToInt32(Console.ReadLine());
+            string pin = Console.ReadLine();
             Console.Write("Post: ");
             string post = Console.ReadLine();
             iAdminManager.CreateAdmin(firstName, lastName, email, phoneNumber, pin, post);
             // LoginAdminMenu();
+            MainMenu mainMenu = new MainMenu();
             mainMenu.LoginMenu();
         }
-
-
-
         public void DeleteAttendantMenu()
         {
             Console.Write("Enter Staff ID of the Attendant.");
             string staffId = Console.ReadLine();
             iAttendantManager.DeleteAttendant(staffId);
         }
-
-
-
         public void LoginAdminMenu()
         {
             Console.WriteLine("Welcome.\nEnter your Staff ID and Password to login ");
             Console.Write("Staff ID: ");
             string staffId = Console.ReadLine();
             Console.Write("Pin: ");
-            int pin = Convert.ToInt32(Console.ReadLine());
+            string pin = Console.ReadLine();
             // iAdminManager.Login(staffId,pin); waht is this doing not part of the code
             Admin admin = iAdminManager.Login(staffId, pin);
             if (admin != null)
@@ -60,23 +52,17 @@ namespace SMS.menu
             else
             {
                 Console.WriteLine($"Wrong Staff ID or Password!.");
+                MainMenu mainMenu=new MainMenu();
+                mainMenu.LoginMenu();
             }
         }
-
-
-
-
         public void AdminSubMenu()
         {
             int choice;
-
-            // do
-            // {
             // Console.Clear();
             Console.WriteLine("\nMain Menu >> Login >> Admin >>");
             Console.WriteLine("\nAZ Sales Management System. \nEnter valid option.");
             Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Manage Products \nEnter 3 to Update My Details. \nEnter 4 to View sales Records.\nEnter 5 to Logout.\nEnter 0 to Close.");
-            // int choice = Convert.ToInt32(Console.ReadLine());
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
                 // Console.Clear();
@@ -106,6 +92,7 @@ namespace SMS.menu
                     break;
                 case 5:
                     // logout
+                    MainMenu mainMenu = new MainMenu();
                     mainMenu.LoginMenu();
                     break;
                 default:
@@ -113,8 +100,6 @@ namespace SMS.menu
                     break;
             }
         }
-
-
         public void ManageAttendantSubMenu()
         {
             Console.WriteLine("\n...>> Admin >> Manage Attendants >>");
@@ -135,8 +120,10 @@ namespace SMS.menu
                     return;
                 // break;
                 case 1:
-                    // Create Attendant                    
+                    // Create Attendant
+                    AttendantMenu attendantMenu = new AttendantMenu();
                     attendantMenu.RegisterAttendantPage();
+                    AdminSubMenu();
                     break;
                 case 2:
                     // View All Attendants details
@@ -144,14 +131,15 @@ namespace SMS.menu
                     // AttendantManager attendantManager = new AttendantManager();
                     // attendantManager.ViewAttendant(attendant.StaffId);
                     iAttendantManager.ViewAllAttendants();
+                    AdminSubMenu();
                     break;
                 case 3:
                     // Delete Attendants
-                    // iAdminManager.DeleteAdmin();
                     DeleteAttendantMenu();
                     break;
                 case 4:
                     // logout
+                    MainMenu mainMenu = new MainMenu();
                     mainMenu.LoginMenu();
                     break;
                 default:
@@ -159,13 +147,17 @@ namespace SMS.menu
                     break;
             }
         }
-
+        public void DeleteProductMenu()
+        {
+            Console.Write("Enter Product BarCode: ");
+            string barCode = Console.ReadLine();
+            iProductManager.DeleteProduct(barCode);
+        }
         public void ManageProductSubMenu()
         {
             Console.WriteLine("\n...>> Admin >> Manage Product >>");
             Console.WriteLine("\nAZ Sales Management System. \nEnter valid option.");
-            Console.WriteLine("Enter 1 to Add a product .\nEnter 2 to Modify A product \nEnter 3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Logout.\nEnter 0 to Close.");
-
+            Console.WriteLine("Enter 1 to Add a product .\nEnter  \nEnter 3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Logout.\nEnter 0 to Close.");
             int choice;
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
@@ -190,24 +182,29 @@ namespace SMS.menu
                     iProductManager.CreateProduct(barCode, productName, price);
                     ManageProductSubMenu();
                     break;
-                case 2:
+                // case 2:
                     // Modify product
                     //  Console.WriteLine("Attendant Details.");
                     // AttendantManager attendantManager = new AttendantManager();
                     // attendantManager.ViewAttendant(attendant.StaffId);
 
-                    break;
+                    // break;
                 case 3:
                     // View All products
                     // iAdminManager.DeleteAdmin();
                     iProductManager.ViewAllProduct();
+                    ManageProductSubMenu();
+
                     break;
                 case 4:
                     // logout
-                    DeleteAttendantMenu();
+                    DeleteProductMenu();
+                    ManageProductSubMenu();
+
                     break;
                 case 5:
                     // logout
+                    MainMenu mainMenu = new MainMenu();
                     mainMenu.LoginMenu();
                     break;
                 default:

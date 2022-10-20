@@ -11,7 +11,6 @@ namespace SMS.menu
                 Console.WriteLine("\n>>Main Menu");
                 Console.WriteLine("Welcome..\nAZ Sales Management System. \nEnter valid option.");
                 Console.WriteLine("Enter 1 to Register.\nEnter 2 to Login.\n0 to Close.");
-                // int choice = Convert.ToInt32(Console.ReadLine());
                 while (!int.TryParse(Console.ReadLine(), out choice))
                 {
                     // Console.Clear();
@@ -22,7 +21,6 @@ namespace SMS.menu
                 if (choice == 1)
                 {
                     // Register
-                    Console.WriteLine("\nMain Menu >> Register >> ");
                     RegistrationMenu();
                 }
                 else if (choice == 2)
@@ -42,41 +40,42 @@ namespace SMS.menu
         }
         public void RegistrationMenu()
         {
+            
             do
             {
-                // Console.WriteLine("Main Menu >> Register >>");
-                Console.WriteLine("Enter 1 for Admin.\nEnter 2 for Attendant. \nEnter 3 for Customer. \n4 to go back.");
-                // int choice;
+                Console.WriteLine("\nMain Menu >> Register >>");
+                // Console.WriteLine("Enter 1 for Admin.\nEnter 2 for Attendant. \nEnter 3 for Customer. \nEnter 4 to go back.");
+                Console.WriteLine("Enter 1 Go back to Main Menu. or \nEnter Your OneTime Registration Code for  Newly Employed Manager..");
                 while (!int.TryParse(Console.ReadLine(), out choice))
                 {
-                    Console.Clear();
+                    // Console.Clear();
                     Console.WriteLine("Invalid Input\n");
                     RegistrationMenu();
                 }
-                if (choice == 1)
+                if (choice == 2546)
                 {
                     // Admin
                     Console.WriteLine("\nMain Menu >> Register >> Admin");
                     AdminMenu adminMenu = new AdminMenu();
                     adminMenu.RegisterAdminPage();
                 }
-                else if (choice == 2)
-                {
-                    // Attendant
-                    Console.WriteLine("\nMain Menu >> Register >> Attendant >>");
-                    AttendantMenu attendantMenu = new AttendantMenu();
-                    attendantMenu.RegisterAttendantPage();
-                }
-                else if (choice == 3)
-                {
-                    /*
-                    // Customer
-                    Console.WriteLine("\nMain Menu >> Register >> Customer >>");
-                    CustomerMenu customerMenu = new CustomerMenu();
-                    customerMenu.RegisterCustomerPage();
-                    */
-                }
-                else if (choice == 4)
+                // else if (choice == 2)
+                // // {
+                // //     // Attendant
+                // //     Console.WriteLine("\nMain Menu >> Register >> Attendant >>");
+                // //     AttendantMenu attendantMenu = new AttendantMenu();
+                // //     attendantMenu.RegisterAttendantPage();
+                // // }
+                // // else if (choice == 3)
+                // // {
+                // //     /*
+                // //     // Customer
+                // //     Console.WriteLine("\nMain Menu >> Register >> Customer >>");
+                // //     CustomerMenu customerMenu = new CustomerMenu();
+                // //     customerMenu.RegisterCustomerPage();
+                // //     */
+                // // }
+                else if (choice == 1)
                 {
                     // Go Back
                     AllMainMenu();
@@ -93,11 +92,11 @@ namespace SMS.menu
         }
         public void LoginMenu()
         {
-            int choice;
             do
             {
                 Console.WriteLine("\nMain Menu >> Login >> ");
-                Console.WriteLine("Enter 1 for Admin.\nEnter 2 for Attendant. \nEnter 3 for Customer. \n4 to go back to Main Menu.\n 0 to Close");
+                Console.WriteLine("Enter 1 for Admin.\nEnter 2 for Attendant. \nEnter 3 for Customer. \nEnter 4 to go back to Main Menu.\nEnter 0 to Close");
+                // Console.WriteLine("Enter 1 for Admin.\nEnter 2 for Attendant. \nEnter 3 for Customer. \nEnter 4 to go back to Main Menu.\nEnter 0 to Close");
                 while (!int.TryParse(Console.ReadLine(), out choice))
                 {
                     // Console.Clear();

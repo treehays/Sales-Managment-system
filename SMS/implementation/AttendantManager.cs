@@ -48,7 +48,7 @@ namespace SMS.implementation
         {
             foreach (var item in listOfAttendant)
             {
-                if (item.StaffId == staffId && item.Pin == pin)
+                if (item.StaffId.ToUpper() == staffId && item.Pin == pin)
                 {
                     return item;
                 }

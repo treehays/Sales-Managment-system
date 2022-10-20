@@ -28,17 +28,6 @@ namespace SMS.implementation
         }
         public void GetTransaction(String barCode)
         {
-            // ProductManager productManager = new ProductManager();
-            // productManager.GetProduct(barCode);
-            // if (productManager != null)
-            // {
-            //     // Console.WriteLine($"S. ");
-            //     listOfCustomerCart.Add(productManager);
-            // }
-            // else
-            // {
-            //     Console.WriteLine("Product not found.");
-            // }
         }
     }
 }

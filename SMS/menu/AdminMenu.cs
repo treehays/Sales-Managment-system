@@ -178,7 +178,6 @@ namespace SMS.menu
                     Console.Write("Barcode(Product ID): ");
                     string barCode = Console.ReadLine();
                     Console.Write("Price: ");
-                    // double price = int.Parse(Console.ReadLine());
                     double price;
                     while (!double.TryParse(Console.ReadLine(), out price))
                     {

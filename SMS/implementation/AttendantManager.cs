@@ -68,9 +68,7 @@ namespace SMS.implementation
             {
                 Console.WriteLine("User not found.");
             }
-
         }
-
         public void ViewAllAttendants()
         {
             foreach (var item in listOfAttendant)

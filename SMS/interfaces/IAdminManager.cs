@@ -1,5 +1,4 @@
 using SMS.model;
-
 namespace SMS.interfaces
 {
     public interface IAdminManager
@@ -8,6 +7,6 @@ namespace SMS.interfaces
         public Admin GetAdmin(string staffId);
         public void UpdateAdmin(string staffId, string firstName, string lastName, string phoneNumber);
         public void DeleteAdmin(string staffId);
-        public Admin Login (string staffId, string pin);
+        public Admin Login(string staffId, string pin);
     }
 }

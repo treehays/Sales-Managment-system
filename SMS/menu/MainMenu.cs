@@ -40,7 +40,7 @@ namespace SMS.menu
         }
         public void RegistrationMenu()
         {
-            
+
             do
             {
                 Console.WriteLine("\nMain Menu >> Register >>");

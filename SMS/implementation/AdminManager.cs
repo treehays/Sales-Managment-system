@@ -13,7 +13,6 @@ namespace SMS.implementation
             listOfAdmin.Add(admin);
             Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.\n");
         }
-
         public void DeleteAdmin(string staffId)
         {
             Admin admin = GetAdmin(staffId);
@@ -27,7 +26,6 @@ namespace SMS.implementation
                 Console.WriteLine("User not found.");
             }
         }
-
         public Admin GetAdmin(string staffId)
         {
             foreach (var item in listOfAdmin)
@@ -39,19 +37,17 @@ namespace SMS.implementation
             }
             return null;
         }
-
         public Admin Login(string staffId, string pin)
         {
             foreach (var item in listOfAdmin)
             {
                 if (item.StaffId == staffId.ToUpper() && item.Pin == pin)
                 {
-                    return item; 
+                    return item;
                 }
             }
             return null;
         }
-
         public void UpdateAdmin(string staffId, string firstName, string lastName, string phoneNumber)
         {
             Admin admin = GetAdmin(staffId);

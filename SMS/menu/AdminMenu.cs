@@ -52,7 +52,7 @@ namespace SMS.menu
             else
             {
                 Console.WriteLine($"Wrong Staff ID or Password!.");
-                MainMenu mainMenu=new MainMenu();
+                MainMenu mainMenu = new MainMenu();
                 mainMenu.LoginMenu();
             }
         }
@@ -157,7 +157,7 @@ namespace SMS.menu
         {
             Console.WriteLine("\n...>> Admin >> Manage Product >>");
             Console.WriteLine("\nAZ Sales Management System. \nEnter valid option.");
-            Console.WriteLine("Enter 1 to Add a product .\nEnter  \nEnter 3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Logout.\nEnter 0 to Close.");
+            Console.WriteLine("Enter 1 to Add a product1. \nEnter 3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Logout.\nEnter 0 to Close.");
             int choice;
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
@@ -178,17 +178,22 @@ namespace SMS.menu
                     Console.Write("Barcode(Product ID): ");
                     string barCode = Console.ReadLine();
                     Console.Write("Price: ");
-                    double price = int.Parse(Console.ReadLine());
+                    // double price = int.Parse(Console.ReadLine());
+                    double price;
+                    while (!double.TryParse(Console.ReadLine(), out price))
+                    {
+                        System.Console.WriteLine("wrong input.. Try again.");
+                    }
                     iProductManager.CreateProduct(barCode, productName, price);
                     ManageProductSubMenu();
                     break;
                 // case 2:
-                    // Modify product
-                    //  Console.WriteLine("Attendant Details.");
-                    // AttendantManager attendantManager = new AttendantManager();
-                    // attendantManager.ViewAttendant(attendant.StaffId);
+                // Modify product
+                //  Console.WriteLine("Attendant Details.");
+                // AttendantManager attendantManager = new AttendantManager();
+                // attendantManager.ViewAttendant(attendant.StaffId);
 
-                    // break;
+                // break;
                 case 3:
                     // View All products
                     // iAdminManager.DeleteAdmin();

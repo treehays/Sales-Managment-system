@@ -16,6 +16,12 @@ namespace SMS
             // System.Console.WriteLine(che);
             // // System.Console.WriteLine(che-dv.Day);
             // System.Console.WriteLine((dv-che).Days+1);
+            // double cashTender1;
+            // while (!double.TryParse(Console.ReadLine(), out cashTender1))
+            // {
+            //     System.Console.WriteLine("wrong input.. Try again.");
+            // }
+            
 
         }
     }

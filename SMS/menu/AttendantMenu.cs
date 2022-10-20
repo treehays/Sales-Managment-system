@@ -77,12 +77,24 @@ namespace SMS.menu
                     Console.Write("Enter Porduct Barcode: ");
                     string barCode = Console.ReadLine();
                     Console.Write("Quantity: ");
-                    int quantity = Convert.ToInt32(Console.ReadLine());
+                    // int quantity = Convert.ToInt32(Console.ReadLine());
+                    int quantity;
+                    while (!int.TryParse(Console.ReadLine(), out quantity))
+                    {
+                        System.Console.WriteLine("wrong input.. Try again.");
+                    }
                     Console.Write("CustomerName: ");
                     string customerId = Console.ReadLine();
+                    Console.Write("Cash Tender: ");
+                    // double cashTender1; /*double.Parse(Console.ReadLine())*/;
+                    double cashTender;
+                    while (!double.TryParse(Console.ReadLine(), out cashTender))
+                    {
+                        System.Console.WriteLine("wrong input.. Try again.");
+                    }
                     DateTime dateTime = new DateTime();
                     dateTime = DateTime.UtcNow;
-                    iTransactionManager.CreateTransaction(receiptNo, barCode, quantity, customerId);
+                    iTransactionManager.CreateTransaction(receiptNo, barCode, quantity, customerId, cashTender);
                     AttendantSubMenu(attendant);
                 }
                 else if (choice == 2)

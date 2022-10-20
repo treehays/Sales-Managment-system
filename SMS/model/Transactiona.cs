@@ -9,11 +9,12 @@ namespace SMS.model
         public double Total { get; set; }
         public string BarCode { get; set; }
         public DateTime DateTime { get; set; }
-        public Transactiona(int id, string receiptNo, string barCode, int quantity, double total, string customerId, DateTime dateTime)
+        public double CashTender { get; set; }
+        public Transactiona(int id, string receiptNo, string barCode, int quantity, double total, string customerId, DateTime dateTime, double cashTender)
         {
             ReceiptNo = receiptNo;
             Id = id;
-
+            CashTender = cashTender;
             BarCode = barCode;
             Quantity = quantity;
             CustomerId = customerId;

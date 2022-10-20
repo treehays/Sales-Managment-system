@@ -153,6 +153,27 @@ namespace SMS.menu
             string barCode = Console.ReadLine();
             iProductManager.DeleteProduct(barCode);
         }
+        public void AddProduct()
+        {
+            Console.Write("Product Name: ");
+            string productName = Console.ReadLine();
+            Console.Write("Barcode(Product ID): ");
+            string barCode = Console.ReadLine();
+            Console.Write("Price: ");
+            double price;
+            while (!double.TryParse(Console.ReadLine(), out price))
+            {
+                System.Console.WriteLine("wrong input.. Try again.");
+            }
+            Console.Write("Quantity: ");
+            
+            int ProductQuantity;
+            while (!int.TryParse(Console.ReadLine(), out ProductQuantity))
+            {
+                System.Console.WriteLine("wrong input.. Try again.");
+            }
+            iProductManager.CreateProduct(barCode, productName, price,ProductQuantity);
+        }
         public void ManageProductSubMenu()
         {
             Console.WriteLine("\n...>> Admin >> Manage Product >>");
@@ -173,17 +194,7 @@ namespace SMS.menu
                 // break;
                 case 1:
                     // Add Product
-                    Console.Write("Product Name: ");
-                    string productName = Console.ReadLine();
-                    Console.Write("Barcode(Product ID): ");
-                    string barCode = Console.ReadLine();
-                    Console.Write("Price: ");
-                    double price;
-                    while (!double.TryParse(Console.ReadLine(), out price))
-                    {
-                        System.Console.WriteLine("wrong input.. Try again.");
-                    }
-                    iProductManager.CreateProduct(barCode, productName, price);
+                    AddProduct();
                     ManageProductSubMenu();
                     break;
                 // case 2:

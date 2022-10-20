@@ -9,3 +9,14 @@ Attendant make payment and check out  customer.
 The system generate receipt for the customer
 
 (Assuming all payments are in cash)
+
+/*
+*check for under pay
+*check for availability of product✔❤😊
+*manage inventory 
+*Manager walet
+*verify availability of email✔😊😊
+*/
+
+UPdate
+👀customer will be able to create account before coming to the store

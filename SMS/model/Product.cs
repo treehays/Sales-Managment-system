@@ -6,12 +6,15 @@ namespace SMS.model
         public string BarCode { get; set; }
         public string ProductName { get; set; }
         public double Price { get; set; }
-        public Product(int id, string barCode, string productName, double price)
+        int ProductQuantity{get;set;}
+        public Product(int id, string barCode, string productName, double price, int productQuantity)
         {
             Id = id;
             BarCode = barCode;
             ProductName = productName;
             Price = price;
+            ProductQuantity=productQuantity;
+
         }
     }
 }

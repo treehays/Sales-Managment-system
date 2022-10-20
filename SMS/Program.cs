@@ -21,7 +21,14 @@ namespace SMS
             // {
             //     System.Console.WriteLine("wrong input.. Try again.");
             // }
-            
+            // string x = "1212";
+            // bool dd;
+            // string wrd = x.ToString();
+            // for (int i = wrd.Length-1; i >= 0; i--)
+            // {
+
+            // System.Console.Write(x.ToCharArray().Reverse());
+
 
         }
     }

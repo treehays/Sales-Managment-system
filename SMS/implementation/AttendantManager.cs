@@ -10,8 +10,18 @@ namespace SMS.implementation
             int id = listOfAttendant.Count() + 1;
             string staffId = "AT" + new Random(id).Next(100000).ToString();
             Attendant attendant = new Attendant(id, firstName, lastName, staffId, email, phoneNumber, pin, post);
-            listOfAttendant.Add(attendant);
-            Console.WriteLine($"Attendant Creation was Successful! \nThe Staff Identity Number is {staffId} and pint {pin}, \nKeep it Safe.");
+            //    Verifying Attendant of Email
+            if (GetAttendant(staffId,email) == null)
+            {
+                listOfAttendant.Add(attendant);
+                Console.WriteLine($"Attendant Creation was Successful! \nThe Staff Identity Number is {staffId} and pint {pin}, \nKeep it Safe.");
+            }
+            else
+            {
+                Console.WriteLine("Attendant already exist. \nKindly Go to Update to Update the Attendant Details");
+            }
+
+            // End
         }
         public void DeleteAttendant(string staffId)
         {
@@ -31,6 +41,17 @@ namespace SMS.implementation
             foreach (var item in listOfAttendant)
             {
                 if (item.StaffId == staffId)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public Attendant GetAttendant(string staffId, string email)
+        {
+            foreach (var item in listOfAttendant)
+            {
+                if (item.StaffId == staffId || item.Email == email)
                 {
                     return item;
                 }

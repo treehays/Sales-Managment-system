@@ -5,12 +5,19 @@ namespace SMS.implementation
     public class ProductManager : IProductManager
     {
         public static List<Product> listOfProduct = new List<Product>();
-        public void CreateProduct(string barCode, string productName, double price)
+        public void CreateProduct(string barCode, string productName, double price, int productQuantity)
         {
             int id = listOfProduct.Count() + 1;
-            Product product = new Product(id, barCode, productName, price);
-            listOfProduct.Add(product);
-            Console.WriteLine($"Product Added Successfully. \nThere are total of {id} product's in the store.");
+            Product product = new Product(id, barCode, productName, price, productQuantity);
+            if (GetProduct(barCode) == null)
+            {
+                listOfProduct.Add(product);
+                Console.WriteLine($"Product Added Successfully. \nThere are total of {id} product's in the store.");
+            }
+            else
+            {
+                Console.WriteLine("Product already exist. \nKindly Go to Update to Update Available Quantity");
+            }
         }
         public void DeleteProduct(string barCode)
         {
@@ -25,6 +32,7 @@ namespace SMS.implementation
                 Console.WriteLine("Product not found.");
             }
         }
+
         public Product GetProduct(string barCode)
         {
             foreach (var item in listOfProduct)

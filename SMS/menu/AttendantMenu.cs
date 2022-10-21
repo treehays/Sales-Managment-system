@@ -70,74 +70,8 @@ namespace SMS.menu
                 if (choice == 1)
                 {
                     // Record Sales
-                    System.Console.WriteLine("Add Product.");
-
-                    int opn;
-                    do
-                    {
-                        Console.WriteLine("\nEnter 1 to Add more product. \nEnter 2 for Menu.");
-                        while (!int.TryParse(Console.ReadLine(), out opn))
-                        {
-                            System.Console.WriteLine("wrong input.. Try again.");
-                        }
-
-                        if (opn == 1)
-                        {
-
-                        }
-                        Console.WriteLine("...Logged >> Attendant >> Payment Page");
-                        Console.Write("Enter RecieptNo: ");
-                        string receiptNo = Console.ReadLine();
-                        Console.Write("Enter Porduct Barcode: ");
-                        string barCode = Console.ReadLine();
-                        Console.Write("Quantity: ");
-                        // int quantity = Convert.ToInt32(Console.ReadLine());
-                        int quantity;
-                        while (!int.TryParse(Console.ReadLine(), out quantity))
-                        {
-                            System.Console.WriteLine("wrong input.. Try again.");
-                        }
-                        Console.Write("CustomerName: ");
-                        string customerId = Console.ReadLine();
-                        Console.Write("Cash Tender: ");
-                        double cashTender;
-                        while (!double.TryParse(Console.ReadLine(), out cashTender))
-                        {
-                            System.Console.WriteLine("wrong input.. Try again.");
-                        }
-                        DateTime dateTime = new DateTime();
-                        dateTime = DateTime.UtcNow;
-                        iTransactionManager.CreateTransaction(receiptNo, barCode, quantity, customerId, cashTender);
-
-
-                    } while (true);
-
-
-                    // Make Payement.
-                    // Console.WriteLine("...Logged >> Attendant >> Payment Page");
-                    // Console.Write("Enter RecieptNo: ");
-                    // string receiptNo = Console.ReadLine();
-                    // Console.Write("Enter Porduct Barcode: ");
-                    // string barCode = Console.ReadLine();
-                    // Console.Write("Quantity: ");
-                    // // int quantity = Convert.ToInt32(Console.ReadLine());
-                    // int quantity;
-                    // while (!int.TryParse(Console.ReadLine(), out quantity))
-                    // {
-                    //     System.Console.WriteLine("wrong input.. Try again.");
-                    // }
-                    // Console.Write("CustomerName: ");
-                    // string customerId = Console.ReadLine();
-                    // Console.Write("Cash Tender: ");
-                    // double cashTender;
-                    // while (!double.TryParse(Console.ReadLine(), out cashTender))
-                    // {
-                    //     System.Console.WriteLine("wrong input.. Try again.");
-                    // }
-                    // DateTime dateTime = new DateTime();
-                    // dateTime = DateTime.UtcNow;
-                    // iTransactionManager.CreateTransaction(receiptNo, barCode, quantity, customerId, cashTender);
-                    // AttendantSubMenu(attendant);
+                    MakeProductPayment();
+                    AttendantSubMenu(attendant);
                 }
                 else if (choice == 2)
                 {
@@ -165,5 +99,45 @@ namespace SMS.menu
                 }
             } while (choice != 0);
         }
+        public void MakeProductPayment()
+        {
+            // Customer Details
+            Console.WriteLine("...Logged >> Attendant >> Payment Page");
+            Console.Write("CustomerName: ");
+            string customerId = Console.ReadLine();
+            Console.Write("Cash Tender: ");
+            double cashTender;
+            while (!double.TryParse(Console.ReadLine(), out cashTender))
+            {
+                System.Console.WriteLine("wrong input.. Try again.");
+            }
+            DateTime dateTime = new DateTime();
+            dateTime = DateTime.UtcNow;
+            // Console.Write("Enter RecieptNo: ");
+            // string receiptNo = Console.ReadLine();
+
+            // Make Payment.
+            
+            Console.Write("Enter Product Barcode: ");
+            string barCode = Console.ReadLine();
+            Console.Write("Quantity: ");
+            int quantity;
+            while (!int.TryParse(Console.ReadLine(), out quantity))
+            {
+                System.Console.WriteLine("wrong input.. Try again.");
+            }
+            iTransactionManager.CreateTransaction(barCode, quantity, customerId, cashTender);
+        }
+        // public void ZZCustomerCart()
+        // {
+        //     Console.Write("Enter Porduct Barcode: ");
+        //     string barCode = Console.ReadLine();
+        //     Console.Write("Quantity: ");
+        //     int quantity;
+        //     while (!int.TryParse(Console.ReadLine(), out quantity))
+        //     {
+        //         System.Console.WriteLine("wrong input.. Try again.");
+        //     }
+        // }
     }
 }

@@ -7,8 +7,14 @@ namespace SMS
     {
         static void Main(string[] args)
         {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.AllMainMenu();         
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.AllMainMenu();
+
+
+            // string a = "w";
+            // string b = "a";
+            // string c = a+b;
+            // System.Console.WriteLine(a+b);
 
             // DateTime dv = DateTime.Parse("2022/11/29");
             // DateTime che = DateTime.UtcNow;

@@ -4,6 +4,7 @@ namespace SMS.implementation
 {
     public class AdminManager : IAdminManager
     {
+        ITransactionManager iTransactionManager = new TransactionManager();
         public static List<Admin> listOfAdmin = new List<Admin>();
         public void CreateAdmin(string firstName, string lastName, string email, string phoneNumber, string pin, string post)
         {

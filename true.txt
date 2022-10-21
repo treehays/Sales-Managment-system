@@ -11,7 +11,7 @@ The system generate receipt for the customer
 (Assuming all payments are in cash)
 
 /*
-*check for under pay
+*check for under pay✔👌
 *check for availability of product✔❤😊
 *manage inventory 
 *Manager walet

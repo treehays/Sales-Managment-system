@@ -9,6 +9,7 @@ namespace SMS.menu
         IAdminManager iAdminManager = new AdminManager();
         IAttendantManager iAttendantManager = new AttendantManager();
         IProductManager iProductManager = new ProductManager();
+        ITransactionManager iTransactionManager = new TransactionManager();
         public void RegisterAdminPage()
         {
             Console.WriteLine("Welcome...");
@@ -62,7 +63,7 @@ namespace SMS.menu
             // Console.Clear();
             Console.WriteLine("\nMain Menu >> Login >> Admin >>");
             Console.WriteLine("\nAZ Sales Management System. \nEnter valid option.");
-            Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Manage Products \nEnter 3 to Update My Details. \nEnter 4 to View sales Records.\nEnter 5 to Logout.\nEnter 0 to Close.");
+            Console.WriteLine("Enter 1 to Manage Attendant.\nEnter 2 to Manage Products \nEnter 3 to Update My Details. \nEnter 4 to View sales Records.\nEnter 5 to check Wallet. \nEnter 6 to Logout.\nEnter 0 to Close.");
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
                 // Console.Clear();
@@ -89,8 +90,14 @@ namespace SMS.menu
                     break;
                 case 4:
                     // View Sales Records
+                    iTransactionManager.GetAllTransactions();
                     break;
                 case 5:
+                    //Check Balance
+                    
+                    Console.WriteLine($"Booked Balance: {iTransactionManager.CalculateTotalSales()}");
+                    break;
+                case 6:
                     // logout
                     MainMenu mainMenu = new MainMenu();
                     mainMenu.LoginMenu();
@@ -166,13 +173,13 @@ namespace SMS.menu
                 System.Console.WriteLine("wrong input.. Try again.");
             }
             Console.Write("Quantity: ");
-            
+
             int ProductQuantity;
             while (!int.TryParse(Console.ReadLine(), out ProductQuantity))
             {
                 System.Console.WriteLine("wrong input.. Try again.");
             }
-            iProductManager.CreateProduct(barCode, productName, price,ProductQuantity);
+            iProductManager.CreateProduct(barCode, productName, price, ProductQuantity);
         }
         public void ManageProductSubMenu()
         {

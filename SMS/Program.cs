@@ -1,7 +1,7 @@
 ﻿using System;
 using SMS.menu;
 // Connections
-namespace SMS
+namespace SMS 
 {
     class Program
     {

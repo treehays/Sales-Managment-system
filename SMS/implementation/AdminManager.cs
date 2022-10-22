@@ -4,15 +4,24 @@ namespace SMS.implementation
 {
     public class AdminManager : IAdminManager
     {
-        ITransactionManager iTransactionManager = new TransactionManager();
-        public static List<Admin> listOfAdmin = new List<Admin>();
         public void CreateAdmin(string firstName, string lastName, string email, string phoneNumber, string pin, string post)
         {
-            int id = listOfAdmin.Count() + 1;
-            string staffId = "AZ" + new Random(id).Next(1100000).ToString();
-            Admin admin = new Admin(id, firstName, lastName, staffId, email, phoneNumber, pin, post);
-            listOfAdmin.Add(admin);
-            Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {staffId}, \nKeep it Safe.\n");
+            int id = Admin.listOfAdmin.Count() + 1;
+
+            // string staffId = "AZ" + new Random(id).Next(1100000).ToString();
+            Admin admin = new Admin(firstName, lastName, email, phoneNumber, pin, post);
+            //    Verifying Attendant of Email
+            if (GetAdmin(email,phoneNumber) == null)
+            {
+                Admin.listOfAdmin.Add(admin);
+                Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {admin.StaffId}, \nKeep it Safe.\n");
+            }
+            else
+            {
+                Console.WriteLine("Attendant already exist. \nKindly Go to Update to Update the Attendant Details");
+            }
+
+            // End
         }
         public void DeleteAdmin(string staffId)
         {
@@ -20,7 +29,7 @@ namespace SMS.implementation
             if (admin != null)
             {
                 Console.WriteLine($"{admin.FirstName} {admin.LastName} Successfully deleted. ");
-                listOfAdmin.Remove(admin);
+                Admin.listOfAdmin.Remove(admin);
             }
             else
             {
@@ -29,7 +38,7 @@ namespace SMS.implementation
         }
         public Admin GetAdmin(string staffId)
         {
-            foreach (var item in listOfAdmin)
+            foreach (var item in Admin.listOfAdmin)
             {
                 if (item.StaffId == staffId)
                 {
@@ -38,11 +47,22 @@ namespace SMS.implementation
             }
             return null;
         }
+        public Admin GetAdmin(string email, string phoneNumber)
+        {
+            foreach (var item in Admin.listOfAdmin)
+            {
+                if (item.Email.ToLower() == email.ToLower() || item.PhoneNumber.ToLower() == phoneNumber.ToLower())
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
         public Admin Login(string staffId, string pin)
         {
-            foreach (var item in listOfAdmin)
+            foreach (var item in Admin.listOfAdmin)
             {
-                if (item.StaffId == staffId.ToUpper() && item.Pin == pin)
+                if (item.StaffId.ToLower() == staffId.ToLower() && item.Pin == pin)
                 {
                     return item;
                 }

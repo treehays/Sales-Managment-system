@@ -1,14 +1,19 @@
 ﻿using System;
 using SMS.menu;
 // Connections
-namespace SMS 
+namespace SMS
 {
     class Program
     {
         static void Main(string[] args)
         {
-                MainMenu mainMenu = new MainMenu();
-                mainMenu.AllMainMenu();
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.AllMainMenu();
+
+
+
+
+
 
 
             // string a = "w";
@@ -34,7 +39,19 @@ namespace SMS
             // {
 
             // System.Console.Write(x.ToCharArray().Reverse());
-
+            // Console.Write(new Random().Next(10000,99999).ToString());
+            // var listOfNum = new List<string>();
+            // var listOfNum2 = new List<string>();
+            // for (int i = 0; i < 100; i++)
+            // {
+            //     listOfNum.Add(((Math.Abs((DateTime.Now.ToBinary()))).ToString()));
+            //     listOfNum2.Add(((Math.Abs((DateTime.Now.ToBinary()))).ToString()).Remove(0, 1));
+            // }
+            // Console.WriteLine(listOfNum2.Distinct().Count());
+            // foreach (var item in listOfNum2)
+            // {
+            //     Console.WriteLine(item);
+            // }
 
         }
     }

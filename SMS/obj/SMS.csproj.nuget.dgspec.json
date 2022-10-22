@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ADEOYE MARVELLOUS\\Desktop\\Sales-Managment-system\\SMS\\SMS.csproj": {}
+    "C:\\Users\\Treehays\\Documents\\CLH\\20221014AbdulsalamAhmad\\SMS\\SMS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ADEOYE MARVELLOUS\\Desktop\\Sales-Managment-system\\SMS\\SMS.csproj": {
+    "C:\\Users\\Treehays\\Documents\\CLH\\20221014AbdulsalamAhmad\\SMS\\SMS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ADEOYE MARVELLOUS\\Desktop\\Sales-Managment-system\\SMS\\SMS.csproj",
+        "projectUniqueName": "C:\\Users\\Treehays\\Documents\\CLH\\20221014AbdulsalamAhmad\\SMS\\SMS.csproj",
         "projectName": "SMS",
-        "projectPath": "C:\\Users\\ADEOYE MARVELLOUS\\Desktop\\Sales-Managment-system\\SMS\\SMS.csproj",
-        "packagesPath": "C:\\Users\\ADEOYE MARVELLOUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ADEOYE MARVELLOUS\\Desktop\\Sales-Managment-system\\SMS\\obj\\",
+        "projectPath": "C:\\Users\\Treehays\\Documents\\CLH\\20221014AbdulsalamAhmad\\SMS\\SMS.csproj",
+        "packagesPath": "C:\\Users\\Treehays\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Treehays\\Documents\\CLH\\20221014AbdulsalamAhmad\\SMS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADEOYE MARVELLOUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Treehays\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,7 +45,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -54,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

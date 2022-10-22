@@ -2,12 +2,19 @@ namespace SMS.model
 {
     public class Admin : User
     {
+        public static List<Admin> listOfAdmin = new List<Admin>();
         public string Post { get; set; }
+        public string StaffId { get; set; }
+
         // public double Wallet { get; set; }
-        public Admin(int id, string firstName, string lastName, string staffId, string email, string phoneNumber, string pin, string post) : base(id, firstName, lastName, staffId, email, phoneNumber, pin)
+        public Admin(string firstName, string lastName, string email, string phoneNumber, string pin, string post) : base(firstName, lastName, email, phoneNumber, pin)
         {
             Post = post;
-            // Wallet = wallet;
+            StaffId = StaffIdGenerator();
+        }
+        private string StaffIdGenerator()
+        {
+            return "AD"+new Random().Next(10000,99999).ToString();
         }
     }
 }

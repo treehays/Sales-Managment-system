@@ -10,7 +10,7 @@ namespace SMS.implementation
             // string staffId = "AT" + new Random(id).Next(100000).ToString();
             Attendant attendant = new Attendant(firstName, lastName,email, phoneNumber, pin, post);
             //    Verifying Attendant of Email
-            if (GetAttendant(attendant.UserId,email) == null)
+            if (GetAttendant(attendant.StaffId,email) == null)
             {
                 Attendant.listOfAttendant.Add(attendant);
                 Console.WriteLine($"Attendant Creation was Successful! \nThe Staff Identity Number is {attendant.StaffId} and pint {pin}, \nKeep it Safe.");
@@ -39,7 +39,7 @@ namespace SMS.implementation
         {
             foreach (var item in Attendant.listOfAttendant)
             {
-                if (item.UserId == staffId)
+                if (item.StaffId == staffId)
                 {
                     return item;
                 }
@@ -50,7 +50,7 @@ namespace SMS.implementation
         {
             foreach (var item in Attendant.listOfAttendant)
             {
-                if (item.UserId.ToLower() == staffId.ToLower() || item.Email.ToLower() == email.ToLower())
+                if (item.StaffId.ToLower() == staffId.ToLower() || item.Email.ToLower() == email.ToLower())
                 {
                     return item;
                 }
@@ -61,14 +61,14 @@ namespace SMS.implementation
         {
             foreach (var item in Attendant.listOfAttendant)
             {
-                Console.WriteLine($"{item.FirstName}\t{item.LastName}\t{item.Email}\t{item.UserId}\t{item.Post}");
+                Console.WriteLine($"{item.FirstName}\t{item.LastName}\t{item.Email}\t{item.StaffId}\t{item.Post}");
             }
         }
         public Attendant Login(string staffId, string pin)
         {
             foreach (var item in Attendant.listOfAttendant)
             {
-                if (item.UserId.ToLower() == staffId.ToLower() && item.Pin == pin)
+                if (item.StaffId.ToLower() == staffId.ToLower() && item.Pin == pin)
                 {
                     return item;
                 }
@@ -93,7 +93,7 @@ namespace SMS.implementation
         {
             foreach (var item in Attendant.listOfAttendant)
             {
-                Console.WriteLine($"Staff Id: {item.UserId} {item.LastName} {item.FirstName} {item.Email} {item.PhoneNumber}");
+                Console.WriteLine($"Staff Id: {item.StaffId} {item.LastName} {item.FirstName} {item.Email} {item.PhoneNumber}");
             }
         }
     }

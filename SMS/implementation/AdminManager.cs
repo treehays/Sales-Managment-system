@@ -14,7 +14,7 @@ namespace SMS.implementation
             if (GetAdmin(email,phoneNumber) == null)
             {
                 Admin.listOfAdmin.Add(admin);
-                Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {admin.StaffId}, \nKeep it Safe.\n");
+                Console.WriteLine($"Dear {firstName}, Registration Successful! \nYour Staff Identity Number is {admin.UserId}, \nKeep it Safe.\n");
             }
             else
             {
@@ -40,7 +40,7 @@ namespace SMS.implementation
         {
             foreach (var item in Admin.listOfAdmin)
             {
-                if (item.StaffId == staffId)
+                if (item.UserId == staffId)
                 {
                     return item;
                 }
@@ -62,7 +62,7 @@ namespace SMS.implementation
         {
             foreach (var item in Admin.listOfAdmin)
             {
-                if (item.StaffId.ToLower() == staffId.ToLower() && item.Pin == pin)
+                if (item.UserId.ToLower() == staffId.ToLower() && item.Pin == pin)
                 {
                     return item;
                 }

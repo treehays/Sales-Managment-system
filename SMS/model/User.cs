@@ -6,13 +6,13 @@ namespace SMS.model
 
         public string UserId { get; set; }
         public string Pin { get; set; }
-        public string Role { get; set; }
-        public User(string userId, string pin, string role)
+        public string UserRole { get; set; }
+        public User(string userId, string pin, string userRole)
         {
 
             UserId = userId;
             Pin = pin;
-            Role=role;
+            UserRole=userRole;
 
         }
     }

@@ -8,8 +8,8 @@ namespace SMS.implementation
         {
             int id = Admin.listOfAdmin.Count() + 1;
 
-            // string staffId = "AZ" + new Random(id).Next(1100000).ToString();
-            Admin admin = new Admin(firstName, lastName, email, phoneNumber, pin, post);
+            string staffId = "AZ" + new Random(id).Next(1100000).ToString();
+            Admin admin = new Admin(staffId, firstName, lastName, email, phoneNumber, pin, post);
             //    Verifying Attendant of Email
             if (GetAdmin(email,phoneNumber) == null)
             {

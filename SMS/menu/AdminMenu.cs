@@ -48,7 +48,6 @@ namespace SMS.menu
             if (admin != null)
             {
                 Console.WriteLine($"Welcome {admin.FirstName}, you've successfully Logged in!");
-                
                 AdminSubMenu();
             }
             else
@@ -119,7 +118,7 @@ namespace SMS.menu
             {
                 // Console.Clear();
                 Console.WriteLine("Invalid Input\n");
-                ManageAttendantSubMenu();
+                AdminSubMenu();
             }
             switch (choice)
             {
@@ -198,8 +197,8 @@ namespace SMS.menu
             {
                 case 0:
                     System.Console.WriteLine("Closed.");
-                    // return;
-                break;
+                    return;
+                // break;
                 case 1:
                     // Add Product
                     AddProduct();
@@ -215,7 +214,6 @@ namespace SMS.menu
                 case 3:
                     // View All products
                     // iAdminManager.DeleteAdmin();
-                    Console.WriteLine("\nS/N \tProduct Name \tBarcode \tQuantity \tPrice");
                     iProductManager.ViewAllProduct();
                     ManageProductSubMenu();
 

@@ -5,12 +5,13 @@ namespace SMS.implementation
 {
     public class TransactionManager : ITransactionManager
     {
-        // public static List<Transactiona> listOfCart = new List<Transactiona>();
+        public static List<Transactiona> listOfTransaction = new List<Transactiona>();
+        public static List<Transactiona> listOfCart = new List<Transactiona>();
         IProductManager iProductManager = new ProductManager();
         public void CreateTransaction(string barCode, int quantity, string customerId, double cashTender)
         {
             Product product = iProductManager.GetProduct(barCode);
-            int id = Transactiona.listOfTransaction.Count() + 1;
+            int id = listOfTransaction.Count() + 1;
             string receiptNo = "ref" + new Random(id).Next(2323, 1000000).ToString();
             double total = product.Price * quantity;
             double xpectedChange = cashTender - total;
@@ -22,7 +23,7 @@ namespace SMS.implementation
             else
             {
                 Transactiona transaction = new Transactiona(id, receiptNo, barCode, quantity, total, customerId, dateTime, cashTender);
-                Transactiona.listOfTransaction.Add(transaction);
+                listOfTransaction.Add(transaction);
                 Console.WriteLine($"Transaction Date: {dateTime} \tReceipt No: {receiptNo} \nBarcode: {product.BarCode} \nPrice Per Unit: {product.Price} \nQuantity:{quantity} \nTotal: {product.Price * quantity}\nCustomer ID:{customerId}.\nCustomer Change: {xpectedChange}");
             }
 
@@ -30,7 +31,7 @@ namespace SMS.implementation
         public double CalculateTotalSales()
         {
             double totalSales = 0;
-            foreach (var item in Transactiona.listOfTransaction)
+            foreach (var item in listOfTransaction)
             {
                 totalSales = item.Total + totalSales;
             }
@@ -38,7 +39,7 @@ namespace SMS.implementation
         }
         public void GetAllTransactions()
         {
-            foreach (var item in Transactiona.listOfTransaction)
+            foreach (var item in listOfTransaction)
             {
                 Console.WriteLine($"Staff Id: {item.Id} {item.CustomerId} {item.BarCode} {item.ReceiptNo} ");
             }

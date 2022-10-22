@@ -2,7 +2,6 @@ namespace SMS.model
 {
     public class Transactiona
     {
-        public static List<Transactiona> listOfTransaction = new List<Transactiona>();
         public string ReceiptNo { get; set; }
         public int Id { get; set; }
         public string CustomerId { get; set; }

@@ -140,7 +140,7 @@ namespace SMS.menu
                 }
 
             } while (choice != 0);
-            Console.WriteLine("Closed");
+            Console.WriteLine();
         }
     }
 }

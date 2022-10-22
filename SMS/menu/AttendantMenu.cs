@@ -3,7 +3,6 @@ using SMS.implementation;
 using SMS.model;
 namespace SMS.menu
 {
-    
     public class AttendantMenu
     {
         IAttendantManager iAttendantManager = new AttendantManager();

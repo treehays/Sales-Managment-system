@@ -94,7 +94,7 @@ namespace SMS.implementation
         {
             foreach (var item in listOfAttendant)
             {
-                Console.WriteLine($"Staff Id: {item.StaffId} {item.LastName} {item.FirstName} {item.Email} {item.PhoneNumber}");
+                Console.WriteLine($"{item.StaffId} {item.LastName} {item.FirstName} {item.Email} {item.PhoneNumber}");
             }
         }
     }

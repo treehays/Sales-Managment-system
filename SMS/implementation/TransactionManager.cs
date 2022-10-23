@@ -6,7 +6,7 @@ namespace SMS.implementation
     public class TransactionManager : ITransactionManager
     {
         public static List<Transactiona> listOfTransaction = new List<Transactiona>();
-        public static List<Transactiona> listOfCart = new List<Transactiona>();
+        // public static List<Transactiona> listOfCart = new List<Transactiona>();
         IProductManager iProductManager = new ProductManager();
         public void CreateTransaction(string barCode, int quantity, string customerId, double cashTender)
         {
@@ -39,10 +39,22 @@ namespace SMS.implementation
         }
         public void GetAllTransactions()
         {
+            Console.WriteLine("\nID\t\tTRANS. DATE \tCUSTOMER NAME\tTOTAL AMOUNT\tBARCODE\tRECEIPT NO");
+
             foreach (var item in listOfTransaction)
             {
-                Console.WriteLine($"Staff Id: {item.Id} {item.CustomerId} {item.BarCode} {item.ReceiptNo} ");
+                Console.WriteLine($"{item.Id}\t{item.Datetime.ToString("d")}\t{item.CustomerId}\t{item.BarCode}\t{item.ReceiptNo}\t{item.Quantity}\t{item.Total}");
             }
+        }
+
+        public double GetAllTransactionsAdmin()
+        {
+            double cumulativeSum = 0;
+            foreach (var item in listOfTransaction)
+            {
+                Console.WriteLine($"{item.Id}\t{item.Datetime.ToString("d")}\t{item.CustomerId}\t{item.BarCode}\t{item.ReceiptNo}\t{item.Quantity}\t{item.Total}\t{cumulativeSum += item.Total}");
+            }
+            return cumulativeSum;
         }
         // public void GetTransaction(String barCode)
         // {

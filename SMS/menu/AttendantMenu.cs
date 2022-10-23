@@ -7,6 +7,7 @@ namespace SMS.menu
     {
         IAttendantManager iAttendantManager = new AttendantManager();
         ITransactionManager iTransactionManager = new TransactionManager();
+        IProductManager iProductManager = new ProductManager();
         public void RegisterAttendantPage()
         {
             Console.WriteLine("\nEnter Valid Details..");
@@ -89,13 +90,16 @@ namespace SMS.menu
                 {
                     //View Transaction History
                     // View Sales Sales Records
+                    Console.WriteLine("\nID\tSTAFF\tFIRST NAME\tLAST NAME\tEMAIL\tPHONE NO");
+
                     iTransactionManager.GetAllTransactions();
                 }
                 else if (choice == 4)
                 {
                     // logout
                     // LoginAttendantMenu();
-                    AttendantSubMenu(attendant);
+                    MainMenu mainMenu = new MainMenu();
+                    mainMenu.LoginMenu();
                 }
             } while (choice != 0);
         }
@@ -103,26 +107,23 @@ namespace SMS.menu
         {
             // Customer Details
             Console.WriteLine("...Logged >> Attendant >> Payment Page");
-            Console.Write("CustomerName: ");
-            string customerId = Console.ReadLine();
-            Console.Write("Cash Tender: ");
-            double cashTender;
-            while (!double.TryParse(Console.ReadLine(), out cashTender))
-            {
-                System.Console.WriteLine("wrong input.. Try again.");
-            }
             DateTime dateTime = new DateTime();
             dateTime = DateTime.UtcNow;
-            // Console.Write("Enter RecieptNo: ");
-            // string receiptNo = Console.ReadLine();
-
-            // Make Payment.
-            
+            Console.Write("CustomerName: ");
+            string customerId = Console.ReadLine();
             Console.Write("Enter Product Barcode: ");
             string barCode = Console.ReadLine();
             Console.Write("Quantity: ");
             int quantity;
             while (!int.TryParse(Console.ReadLine(), out quantity))
+            {
+                System.Console.WriteLine("wrong input.. Try again.");
+            }
+            Product product = iProductManager.GetProduct(barCode);
+            Console.WriteLine($"Amount to be Paid: {quantity * product.Price}");
+            Console.Write("Cash Tender: ");
+            double cashTender;
+            while (!double.TryParse(Console.ReadLine(), out cashTender))
             {
                 System.Console.WriteLine("wrong input.. Try again.");
             }

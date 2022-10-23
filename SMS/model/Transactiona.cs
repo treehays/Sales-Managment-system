@@ -8,9 +8,9 @@ namespace SMS.model
         public int Quantity { get; set; }
         public double Total { get; set; }
         public string BarCode { get; set; }
-        public DateTime DateTime { get; set; }
+        public DateTime Datetime { get; set; }
         public double CashTender { get; set; }
-        public Transactiona(int id, string receiptNo, string barCode, int quantity, double total, string customerId, DateTime dateTime, double cashTender)
+        public Transactiona(int id, string receiptNo, string barCode, int quantity, double total, string customerId, DateTime datetime, double cashTender)
         {
             ReceiptNo = receiptNo;
             Id = id;
@@ -19,7 +19,7 @@ namespace SMS.model
             Quantity = quantity;
             CustomerId = customerId;
             Total = total;
-            DateTime = dateTime;
+            Datetime = datetime;
         }
     }
 }

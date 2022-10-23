@@ -90,11 +90,14 @@ namespace SMS.menu
                     break;
                 case 4:
                     // View Sales Records
-                    iTransactionManager.GetAllTransactions();
+                    Console.WriteLine("\nID\t\tTRANS. DATE \tCUSTOMER NAME\tTOTAL AMOUNT\tBARCODE\tRECEIPT NO\tQUANTITY\tTOTAL\tBALANCE");
+
+                    Console.WriteLine($"Current Wallet Ballance: {iTransactionManager.GetAllTransactionsAdmin()}");
+                    // iTransactionManager.GetAllTransactionsAdmin();
                     break;
                 case 5:
                     //Check Balance
-                    
+
                     Console.WriteLine($"Booked Balance: {iTransactionManager.CalculateTotalSales()}");
                     break;
                 case 6:
@@ -123,7 +126,7 @@ namespace SMS.menu
             switch (choice)
             {
                 case 0:
-                    System.Console.WriteLine("Closed.");
+                    Console.WriteLine("Closed.");
                     return;
                 // break;
                 case 1:
@@ -133,10 +136,7 @@ namespace SMS.menu
                     AdminSubMenu();
                     break;
                 case 2:
-                    // View All Attendants details
-                    //  Console.WriteLine("Attendant Details.");
-                    // AttendantManager attendantManager = new AttendantManager();
-                    // attendantManager.ViewAttendant(attendant.StaffId);
+                    Console.WriteLine("\nID\tSTAFF\tFIRST NAME\tLAST NAME\tEMAIL\tPHONE NO");
                     iAttendantManager.ViewAllAttendants();
                     AdminSubMenu();
                     break;
@@ -185,7 +185,7 @@ namespace SMS.menu
         {
             Console.WriteLine("\n...>> Admin >> Manage Product >>");
             Console.WriteLine("\nAZ Sales Management System. \nEnter valid option.");
-            Console.WriteLine("Enter 1 to Add a product1. \nEnter 3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Logout.\nEnter 0 to Close.");
+            Console.WriteLine("Enter 1 to Add a product1. \nEnter 3  to View all Products. \nEnter 4 to Delete Product.\nEnter 5 to Go Back to Admin Menu\nEnter 6 to Logout.\nEnter 0 to Close.");
             int choice;
             while (!int.TryParse(Console.ReadLine(), out choice))
             {
@@ -214,17 +214,20 @@ namespace SMS.menu
                 case 3:
                     // View All products
                     // iAdminManager.DeleteAdmin();
+                    Console.WriteLine("\nID\tPRODUCT NAME\tBARCODE\tPRICE\tQTY\t");
                     iProductManager.ViewAllProduct();
                     ManageProductSubMenu();
 
                     break;
                 case 4:
-                    // logout
                     DeleteProductMenu();
                     ManageProductSubMenu();
-
                     break;
                 case 5:
+                    AdminSubMenu();
+
+                    break;
+                case 6:
                     // logout
                     MainMenu mainMenu = new MainMenu();
                     mainMenu.LoginMenu();

@@ -62,7 +62,7 @@ namespace SMS.implementation
         {
             foreach (var item in listOfProduct)
             {
-                Console.WriteLine($"{item.Id}\t{item.ProductName}\t{item.BarCode}\t{item.Price}");
+                Console.WriteLine($"{item.Id}\t{item.ProductName}\t{item.BarCode}\t{item.Price}\t{item.ProductQuantity}");
             }
         }
     }

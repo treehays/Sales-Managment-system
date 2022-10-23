@@ -9,6 +9,7 @@ namespace SMS.interfaces
         // public Transaction UpdateTransaction();
         // public void DeleteTransaction(string receiptNo);
         public void GetAllTransactions();
+        public double GetAllTransactionsAdmin();
         public double CalculateTotalSales();
     }
 }

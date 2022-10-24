@@ -3,10 +3,10 @@ namespace SMS.interfaces
 {
     public interface IAdminManager
     {
-        public void CreateAdmin(string firstName, string lastName, string email, string phoneNumber, string pin, string post);
-        public Admin GetAdmin(string staffId);
-        public void UpdateAdmin(string staffId, string firstName, string lastName, string phoneNumber);
-        public void DeleteAdmin(string staffId);
-        public Admin Login(string staffId, string pin);
+        void CreateAdmin(string firstName, string lastName, string email, string phoneNumber, string pin, string post);
+        Admin GetAdmin(string staffId);
+        void UpdateAdmin(string staffId, string firstName, string lastName, string phoneNumber);
+        void DeleteAdmin(string staffId);
+        Admin Login(string staffId, string pin);
     }
 }

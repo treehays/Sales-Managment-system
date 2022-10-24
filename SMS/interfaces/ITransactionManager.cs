@@ -4,12 +4,12 @@ namespace SMS.interfaces
 {
     public interface ITransactionManager
     {
-        public void CreateTransaction(string barCode, int quantity, string customerId, double cashTender);
-        // public void GetTransaction(string receiptNo);
-        // public Transaction UpdateTransaction();
-        // public void DeleteTransaction(string receiptNo);
-        public void GetAllTransactions();
-        public double GetAllTransactionsAdmin();
-        public double CalculateTotalSales();
+        void CreateTransaction(string barCode, int quantity, string customerId, double cashTender);
+        // void GetTransaction(string receiptNo);
+        // Transaction UpdateTransaction();
+        // void DeleteTransaction(string receiptNo);
+        void GetAllTransactions();
+        double GetAllTransactionsAdmin();
+        double CalculateTotalSales();
     }
 }

@@ -90,7 +90,7 @@ namespace SMS.menu
                     break;
                 case 4:
                     // View Sales Records
-                    Console.WriteLine("\nID\t\tTRANS. DATE \tCUSTOMER NAME\tTOTAL AMOUNT\tBARCODE\tRECEIPT NO\tQUANTITY\tTOTAL\tBALANCE");
+                    Console.WriteLine("\nID\t TRANS. DATE \tCUSTOMER NAME\tAMOUNT\tBARCODE\tRECEIPT NO\tQTY\tTOTAL\tBALANCE");
 
                     Console.WriteLine($"Current Wallet Ballance: {iTransactionManager.GetAllTransactionsAdmin()}");
                     // iTransactionManager.GetAllTransactionsAdmin();

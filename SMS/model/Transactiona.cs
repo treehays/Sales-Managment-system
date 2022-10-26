@@ -5,12 +5,12 @@ namespace SMS.model
         public string ReceiptNo { get; set; }
         public int Id { get; set; }
         public string CustomerId { get; set; }
-        public int Quantity { get; set; }
+        public List<int> Quantity { get; set; }
         public double Total { get; set; }
-        public string BarCode { get; set; }
+        public List<string> BarCode { get; set; }
         public DateTime Datetime { get; set; }
         public double CashTender { get; set; }
-        public Transactiona(int id, string receiptNo, string barCode, int quantity, double total, string customerId, DateTime datetime, double cashTender)
+        public Transactiona(int id, string receiptNo, List<string> barCode, List<int> quantity, double total, string customerId, DateTime datetime, double cashTender)
         {
             ReceiptNo = receiptNo;
             Id = id;

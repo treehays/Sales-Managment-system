@@ -8,12 +8,18 @@ namespace SMS.implementation
         public static List<Transactiona> listOfTransaction = new List<Transactiona>();
         // public static List<Transactiona> listOfCart = new List<Transactiona>();
         IProductManager iProductManager = new ProductManager();
-        public void CreateTransaction(string barCode, int quantity, string customerId, double cashTender)
+        public void CreateTransaction(List<string> barCode, List<int> quantity, string customerId, double cashTender)
         {
-            Product product = iProductManager.GetProduct(barCode);
+            var products = iProductManager.GetSelectedProducts(barCode);
             int id = listOfTransaction.Count() + 1;
             string receiptNo = "ref" + new Random(id).Next(2323, 1000000).ToString();
-            double total = product.Price * quantity;
+
+            double total = 0;
+            //product.Price * quantity;
+            for (int i = 0; i < products.Count; i++)
+            {
+                total += products[i].Price * quantity[i];
+            }
             double xpectedChange = cashTender - total;
             DateTime dateTime = DateTime.Now;
             if (xpectedChange < 0)
@@ -24,7 +30,9 @@ namespace SMS.implementation
             {
                 Transactiona transaction = new Transactiona(id, receiptNo, barCode, quantity, total, customerId, dateTime, cashTender);
                 listOfTransaction.Add(transaction);
-                Console.WriteLine($"Transaction Date: {dateTime} \tReceipt No: {receiptNo} \nBarcode: {product.BarCode} \nPrice Per Unit: {product.Price} \nQuantity:{quantity} \nTotal: {product.Price * quantity}\nCustomer ID:{customerId}.\nCustomer Change: {xpectedChange}");
+                System.Console.WriteLine("Barcode: ");
+                products.ForEach(x => System.Console.WriteLine(x.ProductName + " "+ x.Price));
+                Console.WriteLine($"Transaction Date: {dateTime} \tReceipt No: {receiptNo} \nQuantity:{quantity.Count} \nTotal: {total}\nCustomer ID:{customerId}.\nCustomer Change: {xpectedChange}");
             }
 
         }

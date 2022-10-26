@@ -44,6 +44,22 @@ namespace SMS.implementation
             }
             return null;
         }
+
+        public List<Product> GetSelectedProducts(List<string> barCodes)
+        {
+            return listOfProduct.Where(x => barCodes.Contains(x.BarCode)).ToList();
+            // for (var i = 0; i < listOfProduct.Count; i++)
+            // {
+
+            //     if (listOfProduct.Contains(barCodes[i]) )
+            //     {
+            //         yield return listOfProduct[i];
+            //     }
+            // }
+            // yield return null;
+
+        }
+
         public void UpdateProduct(string barCode, string productName, double price)
         {
             Product product = GetProduct(barCode);

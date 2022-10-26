@@ -105,29 +105,47 @@ namespace SMS.menu
         }
         public void MakeProductPayment()
         {
+            List<string> listOfBarCodes = new List<string>();
+            List<int> listOfQuantities = new List<int>();
             // Customer Details
             Console.WriteLine("...Logged >> Attendant >> Payment Page");
             DateTime dateTime = new DateTime();
             dateTime = DateTime.UtcNow;
             Console.Write("CustomerName: ");
             string customerId = Console.ReadLine();
-            Console.Write("Enter Product Barcode: ");
-            string barCode = Console.ReadLine();
-            Console.Write("Quantity: ");
-            int quantity;
-            while (!int.TryParse(Console.ReadLine(), out quantity))
+
+            bool flag = true;
+            while (flag)
             {
-                System.Console.WriteLine("wrong input.. Try again.");
+                Console.Write("Enter Product Barcode: ");
+                string barCode = Console.ReadLine();
+                Console.Write("Quantity: ");
+                int quantity;
+                while (!int.TryParse(Console.ReadLine(), out quantity))
+                {
+                    Console.WriteLine("wrong input.. Try again.");
+                }
+                listOfBarCodes.Add(barCode);
+                listOfQuantities.Add(quantity);
+
+                Console.Write("Enter 1 to Add More Product else press any key:  ");
+                string opt = Console.ReadLine();
+                flag = opt == "1" ? true : false;
             }
-            Product product = iProductManager.GetProduct(barCode);
-            Console.WriteLine($"Amount to be Paid: {quantity * product.Price}");
+
+
+
+
+
+            var product = iProductManager.GetSelectedProducts(listOfBarCodes);
+            // Console.WriteLine($"Amount to be Paid: {quantity * product.Price}");
             Console.Write("Cash Tender: ");
             double cashTender;
             while (!double.TryParse(Console.ReadLine(), out cashTender))
             {
                 System.Console.WriteLine("wrong input.. Try again.");
             }
-            iTransactionManager.CreateTransaction(barCode, quantity, customerId, cashTender);
+            iTransactionManager.CreateTransaction(listOfBarCodes, listOfQuantities, customerId, cashTender);
         }
         // public void ZZCustomerCart()
         // {
